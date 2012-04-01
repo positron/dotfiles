@@ -4,5 +4,5 @@
 if [ -a ~/.vimrc ]; then
   mv ~/.vimrc ~/.vimrc.bak
 fi
-
-ln -s -f `pwd`/vim/.vimrc ~
+ln -sf `pwd`/vim/.vimrc ~
+ln -sfn `pwd`/vim/plugins ~/.vim_plugins
