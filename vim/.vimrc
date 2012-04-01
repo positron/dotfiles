@@ -3,6 +3,7 @@ set background=dark
 set ruler
 set bs=2 "make backspace work
 set autoread
+set magic "same regex as grep
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -26,7 +27,6 @@ set smartindent
 autocmd FileType ?akefile* setlocal noexpandtab tabstop=2 shiftwidth=2 "don't use spaces for makefiles...
 autocmd FileType *.mak* setlocal noexpandtab tabstop=2 shiftwidth=2 "don't use spaces for makefiles...
 autocmd FileType *.mk* setlocal noexpandtab tabstop=2 shiftwidth=2 "don't use spaces for makefiles...
-autocmd FileType python setlocal noexpandtab tabstop=2 shiftwidth=2 "don't use spaces for python...
 
 " Make it so pasting code won't be destroyed with autoindent
 nnoremap <F2> :set invpaste paste?<CR>
