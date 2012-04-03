@@ -1,7 +1,7 @@
 syntax on
 set background=dark
 set ruler
-set bs=2 "make backspace work
+set bs=3 "make backspace work
 set autoread
 set magic "same regex as grep
 
@@ -24,9 +24,9 @@ set smarttab
 set expandtab
 set autoindent
 set smartindent
-autocmd FileType ?akefile* setlocal noexpandtab tabstop=2 shiftwidth=2 "don't use spaces for makefiles...
-autocmd FileType *.mak* setlocal noexpandtab tabstop=2 shiftwidth=2 "don't use spaces for makefiles...
-autocmd FileType *.mk* setlocal noexpandtab tabstop=2 shiftwidth=2 "don't use spaces for makefiles...
+autocmd FileType ?akefile* setlocal noexpandtab tabstop=3 shiftwidth=3 "don't use spaces for makefiles...
+autocmd FileType *.mak* setlocal noexpandtab tabstop=3 shiftwidth=3 "don't use spaces for makefiles...
+autocmd FileType *.mk* setlocal noexpandtab tabstop=3 shiftwidth=3 "don't use spaces for makefiles...
 
 " Make it so pasting code won't be destroyed with autoindent
 nnoremap <F2> :set invpaste paste?<CR>
@@ -137,3 +137,7 @@ set path=.,,**
 nmap ,pe :!p4 edit <CR>:e!<CR>
 nmap ,pr :!p4 revert <CR>:e!<CR>
 nmap ,ps :!p4 sync <CR>:e!<CR>
+
+if filereadable(".vimrc.local")
+   source .vimrc.local
+endif
