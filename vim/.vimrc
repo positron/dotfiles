@@ -117,7 +117,7 @@ noremap <C-Y> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " or manually cd, "nnoremap ,cd :cd %:p:h<CR>:pwd<CR>"
 
 " ",pwd" will print the path of the file being edited
-nnoremap ,pwd :!echo %:p<CR>
+nnoremap ,pwd :echo expand('%:p')<CR>
 
 " Let space toggle a fold if we are in one, otherwise do the default behavior
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
