@@ -1,7 +1,7 @@
 syntax on
 set background=dark
 set ruler
-set bs=3 "make backspace work
+set bs=2 "make backspace work
 set autoread
 set magic "same regex as grep
 
@@ -27,6 +27,7 @@ set smartindent
 autocmd FileType ?akefile* setlocal noexpandtab tabstop=3 shiftwidth=3 "don't use spaces for makefiles...
 autocmd FileType *.mak* setlocal noexpandtab tabstop=3 shiftwidth=3 "don't use spaces for makefiles...
 autocmd FileType *.mk* setlocal noexpandtab tabstop=3 shiftwidth=3 "don't use spaces for makefiles...
+autocmd FileType python setlocal noexpandtab tabstop=3 shiftwidth=3 "don't use spaces for python...
 
 " Make it so pasting code won't be destroyed with autoindent
 nnoremap <F2> :set invpaste paste?<CR>
@@ -106,14 +107,16 @@ inoremap kk <Esc>:w<CR>
 " ctags settings
 " search for a file named "tags" from the current directory down to root
 set tags=./tags;/
-" Use control-L and K to go back and forth instead of ] and T
-noremap <C-L> <C-]>
-noremap <C-K> <C-T>
+" L and K go up and down the tag stack, H and L go left/right.
+noremap <C-K> <C-]>
+noremap <C-J> <C-T>
+noremap <C-L> :tn<CR>
+noremap <C-H> :tp<CR>
 " Control-T opens the tag in a new tab
 noremap <C-T> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " Control-Y opens the tag in a vertical split
 noremap <C-Y> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-" idea, use "autocmd BufEnter * silent! lcd %:p:h" to change cwd to file being edited. This could change tag files when I visit a dependency :)
+" TODO: use "autocmd BufEnter * silent! lcd %:p:h" to change cwd to file being edited. This could change tag files when I visit a dependency :)
 " or manually cd, "nnoremap ,cd :cd %:p:h<CR>:pwd<CR>"
 
 " ",pwd" will print the path of the file being edited
