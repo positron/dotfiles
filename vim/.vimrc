@@ -93,10 +93,6 @@ if exists("+showtabline")
    set tabline=%!MyTabLine() 
 endif 
 
-" NI specific abbreviations
-abb tstat nNIMDBG::tStatus2& status
-abb isfat if(status.isFatal()) return
-
 " prefix std namespace
 abb string std::string
 abb vector std::vector
@@ -151,6 +147,6 @@ nmap ,pe :!p4 edit <CR>:e!<CR>
 nmap ,pr :!p4 revert <CR>:e!<CR>
 nmap ,ps :!p4 sync <CR>:e!<CR>
 
-if filereadable(".vimrc.local")
-   source .vimrc.local
+if filereadable($HOME . "/.vimrc.local")
+   source ~/.vimrc.local
 endif
