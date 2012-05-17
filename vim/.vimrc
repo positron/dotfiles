@@ -35,13 +35,23 @@ set pastetoggle=<F2>
 set showmode
 
 
-" plugin to let you switch between .cpp and .h files quickly
+" a.vim: plugin to let you switch between .cpp and .h files quickly
 let g:alternateNoDefaultAlternate = 1 " don't open a file which doesn't exist if no alternate found
 let g:alternateRelativeFiles = 1      " something about the cwd
 source ~/.vim_plugins/a.vim
 " map C-c c to switch between source and header like emacs
 " use :up instead of :w so you don't write the file when you didn't change anything and confuse make
 noremap <C-C><C-C> <Esc>:up<CR>:A<CR>
+
+" ctrlp.vim: plugin for opening files
+set runtimepath+=~/.vim_plugins/ctrlp
+source ~/.vim_plugins/ctrlp/autoload/ctrlp.vim
+" don't manage working directory (since we use p4 at work)
+let g:ctrlp_working_path_mode = 0
+" open newly created files in a new tab
+let g:ctrlp_open_new_file = 't'
+" open multiple files in tabs
+let g:ctrlp_open_multiple_files = 't'
 
 " Set up the tabline so it won't show the hugely long ugly paths
 if exists("+guioptions") 
