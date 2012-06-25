@@ -1,5 +1,5 @@
 # Philip's Dot Files
-These are the config files to set up a system to maximize my productivity. 
+These are the config files to set up a system to maximize my productivity.  df
 
 ## Installation
 run `./setup` in Unix/Cygwin shells and `setup.bat` in Windows.
