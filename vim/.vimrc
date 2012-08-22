@@ -17,7 +17,6 @@ endif
 set showmatch
 set incsearch
 
-
 set tabstop=3
 set shiftwidth=3
 set smarttab
@@ -34,6 +33,8 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
+" Remove trailing whitespace on file save (all filetypes).
+autocmd BufWritePre * :%s/\s\+$//e
 
 " a.vim: plugin to let you switch between .cpp and .h files quickly
 let g:alternateNoDefaultAlternate = 1 " don't open a file which doesn't exist if no alternate found
@@ -52,6 +53,10 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_open_new_file = 't'
 " open multiple files in tabs
 let g:ctrlp_open_multiple_files = 't'
+" switch to a tab if a file is already open
+let g:ctrlp_switch_buffer = 2
+" make opening new tabs work like :tabnew (inserts new tab into next position in list)
+let g:ctrlp_tabpage_position = 'a'
 
 " Set up the tabline so it won't show the hugely long ugly paths
 if exists("+guioptions") 
