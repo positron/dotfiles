@@ -5,6 +5,7 @@ set ruler
 set bs=2 "make backspace work
 set autoread
 set magic "same regex as grep
+set scrolloff=3
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
