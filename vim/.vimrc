@@ -1,4 +1,21 @@
 set nocompatible
+filetype off   " required by vundle
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+"Bundle "myusuf3/numbers.vim"
+"nnoremap <F3> :NumbersToggle<CR>
+
+Bundle 'Lokaltog/vim-easymotion'
+let g:EasyMotion_leader_key = '<Leader>'
+
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+colorscheme Tomorrow-Night
+
 syntax on
 set background=dark
 set ruler
