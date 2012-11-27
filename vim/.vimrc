@@ -130,8 +130,8 @@ noremap <F4> <Esc>:%s/std::std::/std::/g<CR>
 set timeoutlen=250 " millisecond pause after I type a j for it to go to the next key
 inoremap jj <Esc>
 inoremap jk <Esc>
-nnoremap <Tab> <Esc>   " Use tab instead of escape to cancel prefix keys before a command in normal mode
-onoremap <Tab> <Esc>   " Use tab instead of escape to cancel operater pending commands in normal mode
+"nnoremap <Tab> <Esc>   " Use tab instead of escape to cancel prefix keys before a command in normal mode (This breaks Ctrl-I since it is <TAB>)
+onoremap <Tab> <Esc>   " Use tab instead of escape to cancel operater pending commands in normal mode (eg y)
 vnoremap <Tab> <Esc>gV " Use tab instead of escape to cancel stuff in visual mode
 "faster way to save
 inoremap kk <Esc>:w<CR>
