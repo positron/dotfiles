@@ -14,6 +14,8 @@ Bundle 'tpope/vim-markdown'
 
 Bundle 'kien/ctrlp.vim'
 
+Bundle 'vim-scripts/a.vim'
+
 Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<Leader>'
 
@@ -62,7 +64,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 " a.vim: plugin to let you switch between .cpp and .h files quickly
 let g:alternateNoDefaultAlternate = 1 " don't open a file which doesn't exist if no alternate found
 let g:alternateRelativeFiles = 1      " something about the cwd
-source ~/.vim_plugins/a.vim
 " map C-c c to switch between source and header like emacs
 " use :up instead of :w so you don't write the file when you didn't change anything and confuse make
 noremap <C-C><C-C> <Esc>:up<CR>:A<CR>
