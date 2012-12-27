@@ -1,14 +1,19 @@
 #!/bin/bash
 
-# Install vim
+# Configure vim
 if [ -a ~/.vimrc ]; then
   mv ~/.vimrc ~/.vimrc.bak
 fi
 ln -sf `pwd`/.vimrc ~
 vim +BundleInstall! +qall
 
-# Install tmux
+# Configure tmux
 if [ -a ~/.tmux.conf ]; then
   mv ~/.tmux.conf ~/.tmux.conf.bak
 fi
 ln -sf `pwd`/.tmux.conf ~
+
+# Configure git
+git config --global color.ui true
+git config --global user.name "Philip Jagielski"
+git config --global user.email "philipjagielski@gmail.com"
