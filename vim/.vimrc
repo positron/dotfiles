@@ -7,6 +7,8 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
+Bundle 'tpope/vim-markdown'
+
 "Bundle "myusuf3/numbers.vim"
 "nnoremap <F3> :NumbersToggle<CR>
 
