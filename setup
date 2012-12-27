@@ -17,3 +17,5 @@ ln -sf `pwd`/.tmux.conf ~
 git config --global color.ui true
 git config --global user.name "Philip Jagielski"
 git config --global user.email "philipjagielski@gmail.com"
+git config --global core.editor vim
+git config --global merge.tool vimdiff
