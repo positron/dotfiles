@@ -160,9 +160,11 @@ nnoremap ,pwd :echo expand('%:p')<CR>
 " Let space toggle a fold if we are in one, otherwise do the default behavior
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
+
 " Save and load the folds each time we open/close a file
+" VimEnter because: http://stackoverflow.com/questions/8854371/vim-how-to-restore-the-cursors-logical-and-physical-positions
 au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+au VimEnter * silent loadview
 
 " tab completion of file names
 set wildmenu
