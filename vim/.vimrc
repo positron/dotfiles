@@ -12,6 +12,8 @@ Bundle 'tpope/vim-markdown'
 "Bundle "myusuf3/numbers.vim"
 "nnoremap <F3> :NumbersToggle<CR>
 
+Bundle 'kien/ctrlp.vim'
+
 Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<Leader>'
 
@@ -66,8 +68,6 @@ source ~/.vim_plugins/a.vim
 noremap <C-C><C-C> <Esc>:up<CR>:A<CR>
 
 " ctrlp.vim: plugin for opening files
-set runtimepath+=~/.vim_plugins/ctrlp
-source ~/.vim_plugins/ctrlp/autoload/ctrlp.vim
 " don't manage working directory (since we use p4 at work)
 let g:ctrlp_working_path_mode = 0
 " open newly created files in a new tab

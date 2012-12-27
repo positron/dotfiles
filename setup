@@ -5,4 +5,10 @@ if [ -a ~/.vimrc ]; then
   mv ~/.vimrc ~/.vimrc.bak
 fi
 ln -sf `pwd`/vim/.vimrc ~
-ln -sfn `pwd`/vim/plugins ~/.vim_plugins
+vim +BundleInstall! +qall
+
+# Install tmux
+if [ -a ~/.tmux.conf ]; then
+  mv ~/.tmux.conf ~/.tmux.conf.bak
+fi
+ln -sf `pwd`/.tmux.conf ~
