@@ -16,6 +16,8 @@ Bundle 'kien/ctrlp.vim'
 
 Bundle 'vim-scripts/a.vim'
 
+Bundle 'mattn/zencoding-vim'
+
 Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<Leader>'
 
