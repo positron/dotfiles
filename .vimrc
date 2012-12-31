@@ -81,6 +81,7 @@ let g:ctrlp_open_multiple_files = 't'
 let g:ctrlp_switch_buffer = 2
 " make opening new tabs work like :tabnew (inserts new tab into next position in list)
 let g:ctrlp_tabpage_position = 'a'
+let g:ctrlp_custom_ignore = '\v[\/]venv$'
 
 " Set up the tabline so it won't show the hugely long ugly paths
 if exists("+guioptions")
