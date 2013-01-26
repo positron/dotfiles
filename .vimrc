@@ -4,6 +4,9 @@ filetype off   " required by vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" The rally plugin looked promising but I don't think it's ready for production...
+"Bundle 'davidpthomas/vim4rally'
+
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
