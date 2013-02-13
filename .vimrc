@@ -85,6 +85,10 @@ let g:ctrlp_switch_buffer = 2
 let g:ctrlp_tabpage_position = 'a'
 let g:ctrlp_custom_ignore = '\v[\/]venv$'
 
+" ctrlp uses wildignore
+set wildignore+=*/venv/*
+set wildignore+=*\\venv\\*
+
 " Set up the tabline so it won't show the hugely long ugly paths
 if exists("+guioptions")
    set go-=a go-=e go+=t
