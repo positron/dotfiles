@@ -148,6 +148,12 @@ vnoremap <Tab> <Esc>gV " Use tab instead of escape to cancel stuff in visual mod
 "faster way to save
 inoremap kk <Esc>:w<CR>
 
+" Make Y behave like other capitals
+nnoremap Y y$
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
 " ctags settings
 " search for a file named "tags" from the current directory down to root
 set tags=./tags;/
