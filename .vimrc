@@ -21,6 +21,10 @@ Bundle 'vim-scripts/a.vim'
 
 Bundle 'mattn/zencoding-vim'
 
+Bundle "lepture/vim-jinja"
+
+" Bundle "vim-scripts/VimClojure"
+
 Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<Leader>'
 
