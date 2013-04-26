@@ -13,6 +13,9 @@ if [ -a ~/.tmux.conf ]; then
 fi
 ln -sf `pwd`/.tmux.conf ~
 
+mkdir -p ~/.teamocil/
+ln -sfb `pwd`/teamocil/* ~/.teamocil
+
 # Configure git
 git config --global color.ui true
 git config --global user.name "Philip Jagielski"
