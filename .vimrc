@@ -29,6 +29,7 @@ Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<Leader>'
 
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Bundle 'altercation/vim-colors-solarized'
 colorscheme Tomorrow-Night
 
 syntax on
@@ -199,6 +200,13 @@ set path=.,,**
 nmap ,pe :!p4 edit <CR>:e!<CR>
 nmap ,pr :!p4 revert <CR>:e!<CR>
 nmap ,ps :!p4 sync <CR>:e!<CR>
+
+if &term =~ '256color'
+  " Disable Background Color Erase (BCE) so that color schemes
+  " work properly when Vim is used inside tmux and GNU screen.
+  " See also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+endif
 
 if filereadable($HOME . "/.vimrc.local")
    source ~/.vimrc.local
