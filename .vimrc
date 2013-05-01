@@ -30,7 +30,8 @@ let g:EasyMotion_leader_key = '<Leader>'
 
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'altercation/vim-colors-solarized'
-colorscheme Tomorrow-Night
+let g:solarized_contrast="high"
+colorscheme solarized
 
 syntax on
 set background=dark
