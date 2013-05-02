@@ -13,6 +13,12 @@ if [ -a ~/.tmux.conf ]; then
 fi
 ln -sf `pwd`/.tmux.conf ~
 
+# Configure screen
+if [ -a ~/.screenrc ]; then
+  mv ~/.screenrc ~/.screenrc.bak
+fi
+ln -sf `pwd`/.screenrc ~
+
 mkdir -p ~/.teamocil/
 ln -sfb `pwd`/teamocil/* ~/.teamocil
 

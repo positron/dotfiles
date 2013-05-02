@@ -1,0 +1,11 @@
+startup_message off
+defshell -bash
+
+term screen-256color
+
+defscrollback 80000
+hardstatus on
+hardstatus alwayslastline "%{Yb}%{k}%{G}%{k}%{W} %-w%{+u}%{+b}%n %t%{-b}%{-u}%+w "
+
+screen -t "philip" 0 -bash
+screen -t "philip vim" 1 -bash
