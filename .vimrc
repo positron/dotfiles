@@ -19,7 +19,7 @@ Bundle 'kien/ctrlp.vim'
 
 Bundle 'vim-scripts/a.vim'
 
-Bundle 'mattn/zencoding-vim'
+Bundle 'emmetio/emmet'
 
 Bundle "lepture/vim-jinja"
 
