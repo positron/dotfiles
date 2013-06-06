@@ -19,7 +19,7 @@ Bundle 'kien/ctrlp.vim'
 
 Bundle 'vim-scripts/a.vim'
 
-Bundle 'emmetio/emmet'
+Bundle 'mattn/zencoding-vim'
 
 Bundle "lepture/vim-jinja"
 
@@ -171,7 +171,7 @@ noremap <C-H> :tp<CR>
 " Control-T opens the tag in a new tab
 noremap <C-T> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " Control-Y opens the tag in a vertical split
-noremap <C-Y> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+"noremap <C-Y> :vsp <CR>:exec("tag ".expand("<cword>"))<CR> " this override zencoding.vim
 " TODO: use "autocmd BufEnter * silent! lcd %:p:h" to change cwd to file being edited. This could change tag files when I visit a dependency :)
 " or manually cd, "nnoremap ,cd :cd %:p:h<CR>:pwd<CR>"
 
