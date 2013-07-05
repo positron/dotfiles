@@ -1,0 +1,54 @@
+# This file contains bash settings and aliases that are
+# used by every PC I have. It is sourced by .bashrc so
+# the original bashrc for each system stays in place.
+
+
+# line editing like vim
+set -o vi
+
+# multiple files automatically open in tabs
+alias vim="vim -p"
+alias v="vim -p"
+
+# ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# git aliases
+alias gs='git status'
+alias gd='git diff'
+alias gc='git commit'
+alias gl='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+alias gitsearch='git rev-list --all | xargs git grep -F'
+
+# Pretty print json
+alias json="python -mjson.tool"
+
+# Notify when long running commands are over (Ubuntu)
+n (){
+($* ; notify-send "Command over" "$*")
+}
+
+function mcd() {
+  mkdir -p "$1" && cd "$1";
+}
+
+function undozip(){
+  unzip -l "$1" |  awk 'BEGIN { OFS="" ; ORS="" } ; { for ( i=4; i<NF; i++ ) print $i " "; print $NF "\n" }' | xargs -I{} rm -r {}
+}
+
+# Uninstall old kernels
+cleankernels() {
+    dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get purge --yes
+}
+
+alias aptupgrade='sudo apt-get update && sudo apt-get upgrade --yes && sudo apt-get clean --yes'
+
+alias reload='source $HOME/.bashrc 1>/dev/null'
+
+alias myip='curl ip.appspot.com'
+
+# Server current directory on localhost:8765
+# Works for versions less than 3. Py3 is python "-m http.server 8765"
+alias servethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
