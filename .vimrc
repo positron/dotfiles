@@ -12,7 +12,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'tpope/vim-markdown'
 
-"Bundle "myusuf3/numbers.vim"
+"Bundle 'myusuf3/numbers.vim'
 "nnoremap <F3> :NumbersToggle<CR>
 
 Bundle 'kien/ctrlp.vim'
@@ -21,16 +21,22 @@ Bundle 'vim-scripts/a.vim'
 
 Bundle 'mattn/zencoding-vim'
 
-Bundle "lepture/vim-jinja"
+Bundle 'lepture/vim-jinja'
 
-" Bundle "vim-scripts/VimClojure"
+" make stuff like :Wq work!
+Bundle 'takac/vim-commandcaps'
 
-Bundle 'Lokaltog/vim-easymotion'
-let g:EasyMotion_leader_key = '<Leader>'
+" Ack is better than grep
+Bundle 'mileszs/ack.vim'
+
+" Bundle 'vim-scripts/VimClojure'
+
+"Bundle 'Lokaltog/vim-easymotion'
+"let g:EasyMotion_leader_key = '<Leader>'
 
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'altercation/vim-colors-solarized'
-let g:solarized_contrast="high"
+let g:solarized_contrast="low"
 colorscheme solarized
 
 syntax on
