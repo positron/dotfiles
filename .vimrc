@@ -160,6 +160,9 @@ vnoremap <Tab> <Esc>gV " Use tab instead of escape to cancel stuff in visual mod
 "faster way to save
 inoremap kk <Esc>:w<CR>
 
+" quit via single keypress (Q)
+map Q :qa<CR>
+
 " Make Y behave like other capitals
 nnoremap Y y$
 " Reselect visual block after indent/outdent
