@@ -22,6 +22,11 @@ ln -sf `pwd`/.screenrc ~
 mkdir -p ~/.teamocil/
 ln -sfb `pwd`/teamocil/* ~/.teamocil
 
+# If cygwin, configure mintty
+if [ `uname -o` == "Cygwin" ]; then
+  ln -sf `pwd`/.minttyrc ~
+fi
+
 # Configure git
 git config --global color.ui true
 git config --global user.name "Philip Jagielski"
