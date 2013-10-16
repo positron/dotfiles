@@ -5,10 +5,7 @@ These are the config files to set up a system to maximize my productivity.
 run `./setup` in Unix/Cygwin shells and `setup.bat` in Windows.
 
 ## Vundle
-Plugins are managed by the Vundle plugin. First time installation:
-
-    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-    vim +BundleInstall +qall
+Plugins are managed by the Vundle plugin.
 
 To update plugins:
 

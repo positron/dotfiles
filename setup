@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Install vundle plugin for vimrc
+if [ ! -d ~/.vim/bundle/vundle ]; then
+  mkdir -p ~/.vim/bundle/vundle
+  git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+fi
+
 # Configure vim
 if [ -a ~/.vimrc ]; then
   mv ~/.vimrc ~/.vimrc.bak
