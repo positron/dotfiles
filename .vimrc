@@ -38,14 +38,17 @@ Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'altercation/vim-colors-solarized'
 let g:solarized_contrast="low"
 colorscheme solarized
+set background=dark
 
 syntax on
-set background=dark
-set ruler
-set bs=2 "make backspace work
-set autoread
-set magic "same regex as grep
-set scrolloff=3
+set ruler              " show the line number on the bar
+set bs=2               " make backspace work
+set autoread           " autoreload the file after !shell commands
+set magic              " mostly same regex rules as grep
+set scrolloff=3        " leave 3 lines between the cursor and the top/bot of screen
+set showcmd            " show a command in progress in the bar (eg a long command involving <leader>)
+
+let mapleader=","
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -150,22 +153,27 @@ abb wstring std::wstring
 " map F4 to fix double std:: namespace resolutions sometimes caused by my abbreviations
 noremap <F4> <Esc>:%s/std::std::/std::/g<CR>
 
-" Avoid using the escape key because it's so far away! Just mash jk
-set timeoutlen=250 " millisecond pause after I type a j for it to go to the next key
+" Avoid using the escape key because it's so far away! Just mash jk or jj in insert mode
 inoremap jj <Esc>
 inoremap jk <Esc>
 inoremap kj <Esc>
-"nnoremap <Tab> <Esc>   " Use tab instead of escape to cancel prefix keys before a command in normal mode (This breaks Ctrl-I since it is <TAB>)
-onoremap <Tab> <Esc>   " Use tab instead of escape to cancel operater pending commands in normal mode (eg y)
-vnoremap <Tab> <Esc>gV " Use tab instead of escape to cancel stuff in visual mode
+set timeoutlen=450 " the default 1 second pause is too much for jk
+
 "faster way to save
 inoremap kk <Esc>:w<CR>
 
-" quit via single keypress (Q)
-map Q :qa<CR>
+" Use tab instead of escape to cancel prefix keys before a command in normal mode
+"nnoremap <Tab> <Esc>  " (This breaks Ctrl-I since it is <TAB>)
+
+" Use tab instead of escape to cancel operater pending commands in normal mode (eg <leader>cmd)
+onoremap <Tab> <Esc>
+
+" Use tab instead of escape to cancel stuff in visual mode
+vnoremap <Tab> <Esc>gV
 
 " Make Y behave like other capitals
 nnoremap Y y$
+
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
@@ -183,10 +191,10 @@ noremap <C-T> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " Control-Y opens the tag in a vertical split
 "noremap <C-Y> :vsp <CR>:exec("tag ".expand("<cword>"))<CR> " this override zencoding.vim
 " TODO: use "autocmd BufEnter * silent! lcd %:p:h" to change cwd to file being edited. This could change tag files when I visit a dependency :)
-" or manually cd, "nnoremap ,cd :cd %:p:h<CR>:pwd<CR>"
+" or manually cd, "nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>"
 
-" ",pwd" will print the path of the file being edited
-nnoremap ,pwd :echo expand('%:p')<CR>
+" print the path of the file being edited
+nnoremap <leader>pwd :echo expand('%:p')<CR>
 
 " Let space toggle a fold if we are in one, otherwise do the default behavior
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
@@ -208,9 +216,9 @@ set complete-=i
 set path=.,,**
 
 " Perforce mappings
-nmap ,pe :!p4 edit <CR>:e!<CR>
-nmap ,pr :!p4 revert <CR>:e!<CR>
-nmap ,ps :!p4 sync <CR>:e!<CR>
+nmap <leader>pe :!p4 edit <CR>:e!<CR>
+nmap <leader>pr :!p4 revert <CR>:e!<CR>
+nmap <leader>ps :!p4 sync <CR>:e!<CR>
 
 if &term =~ '256color'
   " Disable Background Color Erase (BCE) so that color schemes
@@ -219,6 +227,8 @@ if &term =~ '256color'
   set t_ut=
 endif
 
+" Allow specific vim settings to exist per computer. I mostly use this for
+" custom mappings for work which I don't want to publish to github.
 if filereadable($HOME . "/.vimrc.local")
    source ~/.vimrc.local
 endif
