@@ -191,10 +191,10 @@ nnoremap ,pwd :echo expand('%:p')<CR>
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
-" Save and load the folds each time we open/close a file
+" Save and load the folds each time we open/close a file (as long as it has a name)
 " VimEnter because: http://stackoverflow.com/questions/8854371/vim-how-to-restore-the-cursors-logical-and-physical-positions
-au BufWinLeave * mkview
-au VimEnter * silent loadview
+au BufWinLeave .+ mkview
+au VimEnter .+ silent loadview
 
 " tab completion of file names
 set wildmenu
