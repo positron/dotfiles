@@ -150,10 +150,11 @@ abb wstring std::wstring
 " map F4 to fix double std:: namespace resolutions sometimes caused by my abbreviations
 noremap <F4> <Esc>:%s/std::std::/std::/g<CR>
 
-" Avoid using the escape key because it's so far away!
+" Avoid using the escape key because it's so far away! Just mash jk
 set timeoutlen=250 " millisecond pause after I type a j for it to go to the next key
 inoremap jj <Esc>
 inoremap jk <Esc>
+inoremap kj <Esc>
 "nnoremap <Tab> <Esc>   " Use tab instead of escape to cancel prefix keys before a command in normal mode (This breaks Ctrl-I since it is <TAB>)
 onoremap <Tab> <Esc>   " Use tab instead of escape to cancel operater pending commands in normal mode (eg y)
 vnoremap <Tab> <Esc>gV " Use tab instead of escape to cancel stuff in visual mode
