@@ -47,6 +47,23 @@ set autoread           " autoreload the file after !shell commands
 set magic              " mostly same regex rules as grep
 set scrolloff=3        " leave 3 lines between the cursor and the top/bot of screen
 set showcmd            " show a command in progress in the bar (eg a long command involving <leader>)
+set spl=en_us          " use English for spellchecking
+set nospell            " don't spellcheck by default
+set showmatch          " highlight the matching brace/paren/bracket
+set incsearch          " start searching when you type the first character
+set nohidden           " when I close a tab, remove the buffer
+set showmode           " show insert/visual/normal in the status line
+
+set tabstop=3          " I prefer 3 spaces for tab
+set shiftwidth=3
+set smarttab
+set expandtab
+set autoindent
+set smartindent
+
+" highlight all search results, but <CR> clears the highlighting
+set hlsearch
+nnoremap <CR> :noh<CR><CR>
 
 let mapleader=","
 
@@ -59,15 +76,7 @@ if has("autocmd")
   filetype indent on
 endif
 
-set showmatch
-set incsearch
 
-set tabstop=3
-set shiftwidth=3
-set smarttab
-set expandtab
-set autoindent
-set smartindent
 autocmd FileType ?akefile* setlocal noexpandtab tabstop=3 shiftwidth=3 "don't use spaces for makefiles...
 autocmd FileType *.mak* setlocal noexpandtab tabstop=3 shiftwidth=3 "don't use spaces for makefiles...
 autocmd FileType *.mk* setlocal noexpandtab tabstop=3 shiftwidth=3 "don't use spaces for makefiles...
@@ -75,7 +84,6 @@ autocmd FileType *.mk* setlocal noexpandtab tabstop=3 shiftwidth=3 "don't use sp
 " Make it so pasting code won't be destroyed with autoindent
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
-set showmode
 
 " Remove trailing whitespace on file save (all filetypes).
 autocmd BufWritePre * :%s/\s\+$//e
@@ -177,6 +185,10 @@ nnoremap Y y$
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
+
+" Make going to the next search result center on the line it's found in.
+map N Nzz
+map n nzz
 
 " ctags settings
 " search for a file named "tags" from the current directory down to root
