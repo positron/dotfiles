@@ -76,12 +76,14 @@ if has("autocmd")
   filetype indent on
 endif
 
+" Abbreviations for c/cpp files. <buffer> means it's local to the buffer.
+autocmd FileType cpp :iabbrev <buffer> #i #include
+autocmd FileType cpp :iabbrev <buffer> #d #define
 
-autocmd FileType ?akefile* setlocal noexpandtab tabstop=3 shiftwidth=3 "don't use spaces for makefiles...
-autocmd FileType *.mak* setlocal noexpandtab tabstop=3 shiftwidth=3 "don't use spaces for makefiles...
-autocmd FileType *.mk* setlocal noexpandtab tabstop=3 shiftwidth=3 "don't use spaces for makefiles...
+"don't use spaces for makefiles...
+autocmd FileType make setlocal noexpandtab tabstop=3 shiftwidth=3
 
-" Make it so pasting code won't be destroyed with autoindent
+" the `paste` option makes it so pasting code won't be destroyed with autoindent
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
