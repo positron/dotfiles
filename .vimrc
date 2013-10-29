@@ -209,6 +209,11 @@ noremap <C-T> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " print the path of the file being edited
 nnoremap <leader>pwd :echo expand('%:p')<CR>
 
+" quickly edit vimrc with ,ev when I have an idea (mnemomic: edit vimrc)
+:nnoremap <leader>ev :split $MYVIMRC<cr>
+" reload vimrc with ,sv (mnemomic: source vimrc)
+:nnoremap <leader>sv :source $MYVIMRC<cr>
+
 " Let space toggle a fold if we are in one, otherwise do the default behavior
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
