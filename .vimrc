@@ -61,9 +61,6 @@ set expandtab
 set autoindent
 set smartindent
 
-" highlight all search results, but <CR> clears the highlighting
-set hlsearch
-nnoremap <CR> :noh<CR><CR>
 
 let mapleader=","
 
@@ -151,8 +148,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Make going to the next search result center on the line it's found in.
-map N Nzz
-map n nzz
+"map N Nzz
+"map n nzz
 
 " ctags settings
 " search for a file named "tags" from the current directory down to root
@@ -176,6 +173,11 @@ nnoremap <leader>pwd :echo expand('%:p')<CR>
 :nnoremap <leader>ev :split $MYVIMRC<cr>
 " reload vimrc with ,sv (mnemomic: source vimrc)
 :nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" turn syntax highlighting on and off
+:nnoremap <leader>hl :set hlsearch! hlsearch?<CR>
+" if you have hlsearch on my default, you can set <CR> to clear the highlighting
+"nnoremap <CR> :noh<CR><CR>
 
 " Let space toggle a fold if we are in one, otherwise do the default behavior
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
