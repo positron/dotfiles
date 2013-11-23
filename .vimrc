@@ -84,9 +84,6 @@ autocmd FileType make setlocal noexpandtab tabstop=3 shiftwidth=3
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
-" Remove trailing whitespace on file save (all filetypes).
-autocmd BufWritePre * :%s/\s\+$//e
-
 " a.vim: plugin to let you switch between .cpp and .h files quickly
 let g:alternateNoDefaultAlternate = 1 " don't open a file which doesn't exist if no alternate found
 let g:alternateRelativeFiles = 1      " something about the cwd
@@ -109,6 +106,7 @@ let g:ctrlp_tabpage_position = 'a'
 " ctrlp uses wildignore
 set wildignore+=*/venv/*,*/_site/*
 set wildignore+=*\\venv\\*,*\\_site\\*
+set wildignore+=tags
 
 " Set up the tabline so it won't show the hugely long ugly paths
 if exists("+guioptions")
@@ -178,6 +176,10 @@ nnoremap <leader>pwd :echo expand('%:p')<CR>
 :nnoremap <leader>hl :set hlsearch! hlsearch?<CR>
 " if you have hlsearch on my default, you can set <CR> to clear the highlighting
 "nnoremap <CR> :noh<CR><CR>
+
+" Remove trailing whitespace
+:nnoremap <leader>sw :%s/\s\+$//e<CR>
+"autocmd BufWritePre * :%s/\s\+$//e
 
 " Let space toggle a fold if we are in one, otherwise do the default behavior
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
