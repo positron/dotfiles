@@ -17,6 +17,74 @@ Bundle 'tpope/vim-markdown'
 
 Bundle 'kien/ctrlp.vim'
 
+" Git wrapper
+Bundle 'tpope/vim-fugitive'
+
+" Mercurial wrapper inspired by fugitive
+Bundle 'vim-scripts/Lawrencium'
+
+Bundle 'bling/vim-airline'
+set laststatus=2 " without this, vim-airline doesn't show until you create a split
+
+" inactive windows should have the left section collapsed to only the filename of that buffer
+let g:airline_inactive_collapse=1
+
+" By default, airline uses a custom font with an awesome branch symbol. Sadly, I don't
+" want to go to the trouble of patching the font everywhere I use vim, so use a more
+" standard character.
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = '∥'
+let g:airline_left_sep = '»'
+let g:airline_right_sep = '«'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+let g:airline#extensions#whitespace#enabled = 1
+
+" enabled enhance tabline
+let g:airline#extensions#tabline#enabled = 1
+" configure how numbers are calculated in tab mode to tab number
+let g:airline#extensions#tabline#tab_nr_type = 1
+
+" Just show the filename (no path) in the tab
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Don't show buffer numbers in the tab line
+let g:airline#extensions#tabline#buffer_nr_show = 0
+
+" The `unique_tail` algorithm will display the tail of the filename, unless
+" there is another file of the same name, in which it will display it along
+" with the containing parent directory.
+" let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" enable/disable showing a summary of changed hunks under source control
+let g:airline#extensions#hunks#enabled = 1
+
+" Change the colors of ctrl-p to match airline
+let g:airline#extensions#ctrlp#color_template = 'normal'
+
+" Gutter for displaying what lines changed since last commit (git, hg, etc)
+Bundle 'mhinz/vim-signify'
+" only detect these VCS (performance)
+let g:signify_vcs_list = [ 'git', 'hg' ]
+
+" jump between hunks!
+let g:signify_mapping_next_hunk = '<leader>gj'
+let g:signify_mapping_prev_hunk = '<leader>gk'
+
+" Tell signify to overwrite existing signs. This boosts performance a tad at the
+" expense of compatibility with any other plugins.
+let g:signify_sign_overwrite = 0
+
+" More opportunistically update signify. Side effect of saving the buffer on focus or bufenter
+let g:signify_update_on_focusgained = 0
+let g:signify_update_on_bufenter = 0
+
 Bundle 'vim-scripts/a.vim'
 
 Bundle 'mattn/zencoding-vim'
