@@ -12,10 +12,28 @@ Bundle 'gmarik/vundle'
 
 Bundle 'tpope/vim-markdown'
 
-"Bundle 'myusuf3/numbers.vim'
-"nnoremap <F3> :NumbersToggle<CR>
+Bundle 'myusuf3/numbers.vim'
+nnoremap <leader>nu :NumbersToggle<CR>
+set nu " Otherwise numbers won't show up in insert mode
 
+
+" Fuzzy finder. I mostly use this for opening new tabs.
 Bundle 'kien/ctrlp.vim'
+" don't manage working directory (since we use p4 at work)
+let g:ctrlp_working_path_mode = 0
+
+" open newly created files in a new tab
+let g:ctrlp_open_new_file = 't'
+
+" open multiple files in tabs
+let g:ctrlp_open_multiple_files = 't'
+
+" switch to a tab if a file is already open
+let g:ctrlp_switch_buffer = 2
+
+" make opening new tabs work like :tabnew (inserts new tab into next position in list)
+let g:ctrlp_tabpage_position = 'a'
+
 
 " Git wrapper
 Bundle 'tpope/vim-fugitive'
@@ -44,7 +62,8 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
-let g:airline#extensions#whitespace#enabled = 1
+" Disable the whitespace extension to speed things up
+let g:airline#extensions#whitespace#enabled = 0
 
 " enabled enhance tabline
 let g:airline#extensions#tabline#enabled = 1
@@ -159,19 +178,7 @@ let g:alternateRelativeFiles = 1      " something about the cwd
 " use :up instead of :w so you don't write the file when you didn't change anything and confuse make
 noremap <C-C><C-C> <Esc>:up<CR>:A<CR>
 
-" ctrlp.vim: plugin for opening files
-" don't manage working directory (since we use p4 at work)
-let g:ctrlp_working_path_mode = 0
-" open newly created files in a new tab
-let g:ctrlp_open_new_file = 't'
-" open multiple files in tabs
-let g:ctrlp_open_multiple_files = 't'
-" switch to a tab if a file is already open
-let g:ctrlp_switch_buffer = 2
-" make opening new tabs work like :tabnew (inserts new tab into next position in list)
-let g:ctrlp_tabpage_position = 'a'
-
-" ctrlp uses wildignore
+" note: ctrlp uses wildignore
 set wildignore+=*/venv/*,*/_site/*
 set wildignore+=*\\venv\\*,*\\_site\\*
 set wildignore+=tags
