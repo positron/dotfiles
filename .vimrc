@@ -39,7 +39,7 @@ let g:ctrlp_tabpage_position = 'a'
 Bundle 'tpope/vim-fugitive'
 
 " Mercurial wrapper inspired by fugitive
-Bundle 'vim-scripts/Lawrencium'
+Bundle 'ludovicchabant/vim-lawrencium'
 
 Bundle 'bling/vim-airline'
 set laststatus=2 " without this, vim-airline doesn't show until you create a split
@@ -195,14 +195,12 @@ abb wstring std::wstring
 " map F4 to fix double std:: namespace resolutions sometimes caused by my abbreviations
 noremap <F4> <Esc>:%s/std::std::/std::/g<CR>
 
-" Avoid using the escape key because it's so far away! Just mash jk or jj in insert mode
+" Avoid using the escape key because it's so far away!
 inoremap jj <Esc>
-inoremap jk <Esc>
-inoremap kj <Esc>
+" Even faster, just mash j and k (side effect: saves buffer)
+inoremap jk <Esc>:w<CR>
+inoremap kj <Esc>:w<CR>
 set timeoutlen=450 " the default 1 second pause is too much for jk
-
-"faster way to save
-inoremap kk <Esc>:w<CR>
 
 " Use tab instead of escape to cancel prefix keys before a command in normal mode
 "nnoremap <Tab> <Esc>  " (This breaks Ctrl-I since it is <TAB>)
