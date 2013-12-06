@@ -14,7 +14,7 @@ Bundle 'tpope/vim-markdown'
 
 Bundle 'myusuf3/numbers.vim'
 nnoremap <leader>nu :NumbersToggle<CR>
-set nu " Otherwise numbers won't show up in insert mode
+set number " Otherwise numbers won't show up in insert mode
 
 
 " Fuzzy finder. I mostly use this for opening new tabs.
@@ -58,8 +58,6 @@ let g:airline_left_sep = '»'
 let g:airline_right_sep = '«'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " Disable the whitespace extension to speed things up
