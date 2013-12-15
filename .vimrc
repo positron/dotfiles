@@ -106,6 +106,10 @@ Bundle 'vim-scripts/a.vim'
 
 Bundle 'mattn/zencoding-vim'
 
+Bundle 'jnwhiteh/vim-golang'
+" Run gofmt whenever I save go files
+"autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
 Bundle 'lepture/vim-jinja'
 
 " make stuff like :Wq work!
@@ -186,10 +190,10 @@ if exists("+guioptions")
    set go-=a go-=e go+=t
 endif
 
-" prefix std namespace
-abb string std::string
-abb vector std::vector
-abb wstring std::wstring
+" prefix std namespace TODO: only do this in cpp files
+"abb string std::string
+"abb vector std::vector
+"abb wstring std::wstring
 " map F4 to fix double std:: namespace resolutions sometimes caused by my abbreviations
 noremap <F4> <Esc>:%s/std::std::/std::/g<CR>
 
