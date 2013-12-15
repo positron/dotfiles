@@ -13,7 +13,6 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-markdown'
 
 Bundle 'myusuf3/numbers.vim'
-nnoremap <leader>nu :NumbersToggle<CR>
 set number " Otherwise numbers won't show up in insert mode
 
 
@@ -169,9 +168,11 @@ autocmd FileType cpp :iabbrev <buffer> #d #define
 "don't use spaces for makefiles...
 autocmd FileType make setlocal noexpandtab tabstop=3 shiftwidth=3
 
-" the `paste` option makes it so pasting code won't be destroyed with autoindent
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
+" copy paste mode:
+" the `paste` option makes it so pasting code won't be messed up by autoindent
+inoremap <F2> :set invpaste paste?<CR>
+" in normal mode, turn off signify and line numbers so I can copy and paste by selecting text
+nnoremap <F2> :NumbersToggle<CR>:setlocal number!<CR>:SignifyToggle<CR>
 
 " a.vim: plugin to let you switch between .cpp and .h files quickly
 let g:alternateNoDefaultAlternate = 1 " don't open a file which doesn't exist if no alternate found
