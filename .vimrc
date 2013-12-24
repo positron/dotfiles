@@ -122,10 +122,10 @@ Bundle 'mileszs/ack.vim'
 "Bundle 'Lokaltog/vim-easymotion'
 "let g:EasyMotion_leader_key = '<Leader>'
 
-Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+" Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'altercation/vim-colors-solarized'
 let g:solarized_contrast="low"
-colorscheme solarized
+:silent! colorscheme solarized
 set background=dark
 
 syntax on
