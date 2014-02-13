@@ -170,9 +170,10 @@ autocmd FileType make setlocal noexpandtab tabstop=3 shiftwidth=3
 
 " copy paste mode:
 " the `paste` option makes it so pasting code won't be messed up by autoindent
-inoremap <F2> :set invpaste paste?<CR>
+inoremap <F2> <Esc>:set invpaste paste?<CR>i
+nnoremap <F2> :set invpaste paste?<CR>
 " in normal mode, turn off signify and line numbers so I can copy and paste by selecting text
-nnoremap <F2> :NumbersToggle<CR>:setlocal number!<CR>:SignifyToggle<CR>
+nnoremap <F3> :NumbersToggle<CR>:setlocal number!<CR>:SignifyToggle<CR>
 
 " a.vim: plugin to let you switch between .cpp and .h files quickly
 let g:alternateNoDefaultAlternate = 1 " don't open a file which doesn't exist if no alternate found
