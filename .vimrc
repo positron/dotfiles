@@ -141,6 +141,7 @@ set showmatch          " highlight the matching brace/paren/bracket
 set incsearch          " start searching when you type the first character
 set nohidden           " when I close a tab, remove the buffer
 set showmode           " show insert/visual/normal in the status line
+set cpo+=J             " a sentence has to be followed by two spaces after a ., !, or ?
 
 set tabstop=3          " I prefer 3 spaces for tab
 set shiftwidth=3
