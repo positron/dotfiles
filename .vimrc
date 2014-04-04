@@ -36,6 +36,9 @@ let g:ctrlp_switch_buffer = 2
 " make opening new tabs work like :tabnew (inserts new tab into next position in list)
 let g:ctrlp_tabpage_position = 'a'
 
+" list files that start with a .
+let g:ctrlp_show_hidden = 1
+
 
 " Git wrapper
 Bundle 'tpope/vim-fugitive'
