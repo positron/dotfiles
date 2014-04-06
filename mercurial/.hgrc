@@ -1,12 +1,9 @@
-; Windows version of .hgrc
-
 [ui]
 editor = vim
 username = Philip Jagielski <philip.jagielski@ni.com>
-ignore = ~/hgignore.ini
+ignore = ~/.hgignore
 
 [extensions]
-perfarce =
 color =
 rebase =
 bookmarks =
@@ -20,18 +17,9 @@ glog = log -G --template 'changeset:   {rev}:{node|short} {tags}\nsummary:     {
 ; short log - last 5 commits
 slog = log --limit 5
 
-[perfarce]
-move = True
-copy = True
- 
-[bookmarks]
-; only update the current bookmark if multiple are pointed at the current commit (like git)
-track.current = True
-
 [pager]
-; you need to run `set LESS=FSRX` before the pager will work properly on windows (or `setx LESS FSRX`)
 ; FSRX means don't page if the input is short enough
-pager = less -F
+pager = LESS='FSRX' less
 ignore = version, help, update, serve, record
 
 [diff]

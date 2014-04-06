@@ -19,6 +19,14 @@ if [ -a ~/.tmux.conf ]; then
 fi
 ln -sf `pwd`/.tmux.conf ~
 
+# Configure mercurial
+if [ -a ~/.hgrc ]; then
+  mv ~/.hgrc ~/.hgrc.ba
+fi
+ln -sf `pwd`/mercurial/.hgrc ~
+ln -sf `pwd`/mercurial/hgignore.ini ~/.hgignore
+
+
 # Configure screen
 if [ -a ~/.screenrc ]; then
   mv ~/.screenrc ~/.screenrc.bak
