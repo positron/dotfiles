@@ -6,14 +6,15 @@
 # line editing like vim
 set -o vi
 
-# multiple files automatically open in tabs
+# vim: automatically open multiple files in tabs
 alias vim="vim -p"
 alias v="vim -p"
 
 # ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ls='ls --color=auto'
+alias ll='ls -alF --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
 
 # git aliases
 alias gs='git status'

@@ -11,7 +11,7 @@ if [ -a ~/.vimrc ]; then
   mv ~/.vimrc ~/.vimrc.bak
 fi
 ln -sf `pwd`/.vimrc ~
-vim +BundleInstall! +qall
+#vim +BundleInstall! +qall
 
 # Configure tmux
 if [ -a ~/.tmux.conf ]; then
@@ -47,3 +47,10 @@ git config --global user.name "Philip Jagielski"
 git config --global user.email "philipjagielski@gmail.com"
 git config --global core.editor vim
 git config --global merge.tool vimdiff
+
+# source .bashrc_dotfiles if .bashrc doesn't already
+if ! grep -q bashrc_dotfiles ~/.bashrc; then
+   echo "Sourcing bashrc_dotfiles in .bashrc"
+   echo "source `pwd`/.bashrc_dotfiles" >> ~/.bashrc
+   . ~/.bashrc
+fi
