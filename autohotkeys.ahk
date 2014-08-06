@@ -13,8 +13,24 @@
 
 
 ; Win+S runs snipping tool
-#s::Run SnippingTool.exe
-
+#s::
+   If WinExist("Snipping Tool")
+   {
+      WinActivate, Snipping Tool
+      WinWaitActive, Snipping Tool
+      Send !n
+      Send r
+   }
+   else
+   {
+      ; Just "SnippingTool.exe" works on 32-bit systems.
+      Run, "C:\Windows\Sysnative\SnippingTool.exe"
+      WinWait, Snipping Tool
+      WinActivate, Snipping Tool
+      Send !n
+      Send r
+   }
+RETURN
 
 ; TODO: see if this works on my laptop
 ; https://github.com/PProvost/AutoHotKey/blob/master/DisableTouchPad.ahk
