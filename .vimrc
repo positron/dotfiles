@@ -211,7 +211,7 @@ inoremap jj <Esc>
 " Even faster, just mash j and k (side effect: saves buffer)
 inoremap jk <Esc>:w<CR>
 inoremap kj <Esc>:w<CR>
-set timeoutlen=450 " the default 1 second pause is too much for jk
+set timeoutlen=400 " the default 1 second pause is too much for jk
 
 " Use tab instead of escape to cancel prefix keys before a command in normal mode
 "nnoremap <Tab> <Esc>  " (This breaks Ctrl-I since it is <TAB>)
@@ -268,6 +268,11 @@ nnoremap <leader>pwd :echo expand('%:p')<CR>
 " Let space toggle a fold if we are in one, otherwise do the default behavior
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
+
+" Map C-l to toggle to the last tab (this overrides 'Clear and redraw screen', so use :redraw! instead)
+let g:lasttab = 1
+nmap <C-l> :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
 
 " Save and load the folds each time we open/close a file (as long as it has a name)
 " VimEnter because: http://stackoverflow.com/questions/8854371/vim-how-to-restore-the-cursors-logical-and-physical-positions
