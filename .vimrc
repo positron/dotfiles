@@ -109,7 +109,8 @@ let g:signify_update_on_bufenter = 0
 
 Bundle 'vim-scripts/a.vim'
 
-Bundle 'mattn/zencoding-vim'
+" Plugin for expanding abbreviations
+" Bundle 'mattn/emmet-vim'
 
 Bundle 'jnwhiteh/vim-golang'
 " Run gofmt whenever I save go files
