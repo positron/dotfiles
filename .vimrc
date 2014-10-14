@@ -20,7 +20,7 @@ let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
 " Fuzzy finder. I mostly use this for opening new tabs.
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 " don't manage working directory (since we use p4 at work)
 let g:ctrlp_working_path_mode = 0
 
