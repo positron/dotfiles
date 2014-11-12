@@ -1,11 +1,10 @@
 set nocompatible
 filetype off   " required by vundle
 
+let mapleader=","
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-
-" The rally plugin looked promising but I don't think it's ready for production...
-"Bundle 'davidpthomas/vim4rally'
 
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
@@ -16,10 +15,8 @@ Bundle 'Raimondi/delimitMate'
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
-" Fuzzy finder. I mostly use this for opening new tabs.
+" Fuzzy finder for finding files
 Bundle 'ctrlpvim/ctrlp.vim'
-" don't manage working directory (since we use p4 at work)
-let g:ctrlp_working_path_mode = 0
 
 " open newly created files in a new tab
 let g:ctrlp_open_new_file = 't'
@@ -36,12 +33,11 @@ let g:ctrlp_tabpage_position = 'a'
 " list files that start with a .
 let g:ctrlp_show_hidden = 1
 
-
 " Git wrapper
 Bundle 'tpope/vim-fugitive'
 
 " Mercurial wrapper inspired by fugitive
-Bundle 'ludovicchabant/vim-lawrencium'
+"Bundle 'ludovicchabant/vim-lawrencium'
 
 Bundle 'bling/vim-airline'
 set laststatus=2 " without this, vim-airline doesn't show until you create a split
@@ -87,39 +83,34 @@ let g:airline#extensions#hunks#enabled = 1
 " Change the colors of ctrl-p to match airline
 let g:airline#extensions#ctrlp#color_template = 'normal'
 
-" Gutter for displaying what lines changed since last commit (git, hg, etc)
-Bundle 'mhinz/vim-signify'
-" only detect these VCS (performance)
-let g:signify_vcs_list = [ 'git', 'hg' ]
+" Gutter for displaying what lines changed since last commit
+Bundle 'airblade/vim-gitgutter'
 
-" jump between hunks!
-let g:signify_mapping_next_hunk = '<leader>gj'
-let g:signify_mapping_prev_hunk = '<leader>gk'
+nmap <leader>gj <Plug>GitGutterNextHunk
+nmap <leader>gk <Plug>GitGutterPrevHunk
+" gitgutter maps <leader>hs and <leader>hr to stage and revert hunks
 
-" Tell signify to overwrite existing signs. This boosts performance a tad at the
-" expense of compatibility with any other plugins.
-let g:signify_sign_overwrite = 0
-
-" More opportunistically update signify. Side effect of saving the buffer on focus or bufenter
-let g:signify_update_on_focusgained = 0
-let g:signify_update_on_bufenter = 0
+" performance settings
+let g:gitgutter_max_signs = 1000
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager = 1
 
 Bundle 'vim-scripts/a.vim'
 
 " Plugin for expanding abbreviations
 " Bundle 'mattn/emmet-vim'
 
-Bundle 'jnwhiteh/vim-golang'
+"Bundle 'jnwhiteh/vim-golang'
 " Run gofmt whenever I save go files
 "autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
-Bundle 'lepture/vim-jinja'
+"Bundle 'lepture/vim-jinja'
 
 " make stuff like :Wq work!
 Bundle 'takac/vim-commandcaps'
 
 " Ack is better than grep
-Bundle 'mileszs/ack.vim'
+"Bundle 'mileszs/ack.vim'
 
 " Bundle 'vim-scripts/VimClojure'
 
@@ -128,7 +119,7 @@ Bundle 'mileszs/ack.vim'
 
 " Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'altercation/vim-colors-solarized'
-let g:solarized_contrast="low"
+"let g:solarized_contrast="low"
 :silent! colorscheme solarized
 set background=dark
 
@@ -142,6 +133,7 @@ set showcmd            " show a command in progress in the bar (eg a long comman
 set spl=en_us          " use English for spellchecking
 set nospell            " don't spellcheck by default
 set showmatch          " highlight the matching brace/paren/bracket
+set nohlsearch         " don't highlight search (<leader>hl toggles)
 set incsearch          " start searching when you type the first character
 set nohidden           " when I close a tab, remove the buffer
 set showmode           " show insert/visual/normal in the status line
@@ -153,9 +145,6 @@ set smarttab
 set expandtab
 set autoindent
 set smartindent
-
-
-let mapleader=","
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -284,11 +273,6 @@ set complete-=i
 
 " set path so I can use :tabf[ind] and :find to open files w/o typing the whole path
 set path=.,,**
-
-" Perforce mappings
-nmap <leader>pe :!p4 edit <CR>:e!<CR>
-nmap <leader>pr :!p4 revert <CR>:e!<CR>
-nmap <leader>ps :!p4 sync <CR>:e!<CR>
 
 if &term =~ '256color'
   " Disable Background Color Erase (BCE) so that color schemes
