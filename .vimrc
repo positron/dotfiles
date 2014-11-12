@@ -1,7 +1,7 @@
 set nocompatible
 filetype off   " required by vundle
 
-let mapleader=","
+let mapleader=" "
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -251,8 +251,9 @@ nnoremap <leader>pwd :echo expand('%:p')<CR>
 "autocmd BufWritePre * :%s/\s\+$//e
 
 " Let space toggle a fold if we are in one, otherwise do the default behavior
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
+" TODO: maybe map this to double space?
+"nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+"vnoremap <Space> zf
 
 " Map C-l to toggle to the last tab (this overrides 'Clear and redraw screen', so use :redraw! instead)
 let g:lasttab = 1
