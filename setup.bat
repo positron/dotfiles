@@ -2,13 +2,13 @@
 
 :: TODO: install the autohotkey script in the startup folder
 
-:: install vimrc (just copy over old one :-/)
-call cp .vimrc %home%\_vimrc
+:: install vimrc (just copy over old one because windows vim doesn't create a default one)
+cp .vimrc %USERPROFILE%\_vimrc
 
 :: install vundle
-if not exist "%home%\.vim\bundle\vundle\" (
-   mkdir -p %home%\.vim\bundle\vundle\
-   git clone https://github.com/gmarik/vundle.git %home%\.vim\bundle\vundle\
+if not exist "%USERPROFILE%\.vim\bundle\vundle\" (
+   mkdir -p %USERPROFILE%\.vim\bundle\vundle\
+   git clone https://github.com/gmarik/vundle.git %USERPROFILE%\.vim\bundle\vundle\
    vim +BundleInstall! +qall
 ) else (
    echo "Run vim +BundleInstall! +qall to upgrade vim plugins"
@@ -22,5 +22,5 @@ git config --global core.editor vim
 git config --global merge.tool vimdiff
 
 :: install mercurial stuff
-call cp mercurial\mercurial.ini %home%\mercurial.ini
-call cp mercurial\hgignore.ini %home%\hgignore.ini
+cp mercurial\mercurial.ini %USERPROFILE%\mercurial.ini
+cp mercurial\hgignore.ini %USERPROFILE%\hgignore.ini
