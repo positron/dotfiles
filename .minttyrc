@@ -7,14 +7,15 @@ OpaqueWhenFocused=yes
 BackspaceSendsBS=no
 Scrollbar=none
 
-# Cursor
 CursorType=block
 CursorBlinks=no
 
-# Font
 Font=Lucida Console
 FontSmoothing=full
 BoldAsFont=no
+
+Term=xterm-256color
+ClicksTargetApp=no
 
 # Solarized color scheme
 Black=7,54,66
@@ -26,7 +27,6 @@ Blue=38,139,210
 Magenta=211,54,130
 Cyan=42,161,152
 White=238,232,213
-#BoldBlack=0,43,54
 BoldRed=203,75,22
 BoldGreen=88,110,117
 BoldYellow=101,123,131
