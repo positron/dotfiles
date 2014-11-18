@@ -141,6 +141,8 @@ set incsearch          " start searching when you type the first character
 set nohidden           " when I close a tab, remove the buffer
 set showmode           " show insert/visual/normal in the status line
 set cpo+=J             " a sentence has to be followed by two spaces after a ., !, or ?
+set fo-=c              " automatically text wrap comments
+set fo-=o              " automatically insert current comment leader when you hit o or O
 
 set tabstop=3          " I prefer 3 spaces for tab
 set shiftwidth=3
