@@ -151,6 +151,16 @@ set expandtab
 set autoindent
 set smartindent
 
+" Make temp files go somewhere out of the way by prepending better directories
+set undolevels=200 "maximum number of changes you can undo (stored in memory)
+
+set undodir-=.
+set undodir^=~/.vim/undodir
+set directory-=.
+set directory^=~/.vim/swpdir
+set backupdir-=.
+set backupdir^=~/.vim/backupdir
+
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal g'\"" | endif
