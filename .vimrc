@@ -11,6 +11,9 @@ Bundle 'gmarik/vundle'
 
 Bundle 'tpope/vim-markdown'
 
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+
 Bundle 'rodjek/vim-puppet'
 let g:puppet_align_hashes = 0
 
