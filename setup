@@ -7,9 +7,6 @@ if [ ! -d ~/.vim/bundle/vundle ]; then
 fi
 
 # Configure vim
-if [ -a ~/.vimrc ]; then
-  mv ~/.vimrc ~/.vimrc.bak
-fi
 ln -sf `pwd`/.vimrc ~
 mkdir -p ~/.vim/backupdir
 mkdir -p ~/.vim/undodir
@@ -17,23 +14,13 @@ mkdir -p ~/.vim/swpdir
 #vim +BundleInstall! +qall
 
 # Configure tmux
-if [ -a ~/.tmux.conf ]; then
-  mv ~/.tmux.conf ~/.tmux.conf.bak
-fi
 ln -sf `pwd`/.tmux.conf ~
 
 # Configure mercurial
-if [ -a ~/.hgrc ]; then
-  mv ~/.hgrc ~/.hgrc.ba
-fi
 ln -sf `pwd`/mercurial/.hgrc ~
 ln -sf `pwd`/mercurial/hgignore.ini ~/.hgignore
 
-
 # Configure screen
-if [ -a ~/.screenrc ]; then
-  mv ~/.screenrc ~/.screenrc.bak
-fi
 ln -sf `pwd`/.screenrc ~
 
 mkdir -p ~/.teamocil/
