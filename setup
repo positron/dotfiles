@@ -23,9 +23,6 @@ ln -sf `pwd`/mercurial/hgignore.ini ~/.hgignore
 # Configure screen
 ln -sf `pwd`/.screenrc ~
 
-mkdir -p ~/.teamocil/
-ln -sfb `pwd`/teamocil/* ~/.teamocil
-
 # If cygwin, configure mintty
 if [ `uname -o` == "Cygwin" ]; then
   ln -sf `pwd`/.minttyrc ~
