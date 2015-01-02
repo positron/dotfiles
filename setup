@@ -34,6 +34,7 @@ git config --global color.ui true
 git config --global user.name "Philip Jagielski"
 git config --global core.editor vim
 git config --global merge.tool vimdiff
+git config --global push.default simple
 if [ -z `git config --global user.email` ]; then
    echo "REMEMBER: Tell git your email like this: git config --global user.email \"philipjagielski@gmail.com\""
 fi
