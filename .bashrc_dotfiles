@@ -53,3 +53,7 @@ alias myip='curl ip.appspot.com'
 # Server current directory on localhost:8765
 # Works for versions less than 3. Py3 is python "-m http.server 8765"
 alias servethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
+
+if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"  ]; then
+    source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+fi
