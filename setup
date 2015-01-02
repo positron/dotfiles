@@ -2,8 +2,8 @@
 
 # Install vundle plugin for vimrc
 if [ ! -d ~/.vim/bundle/vundle ]; then
-  mkdir -p ~/.vim/bundle/vundle
-  git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+   mkdir -p ~/.vim/bundle/vundle
+   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 fi
 
 # Configure vim
@@ -24,18 +24,24 @@ ln -sf `pwd`/mercurial/hgignore.ini ~/.hgignore
 ln -sf `pwd`/.screenrc ~
 
 # If cygwin, configure mintty
-if [ `uname -o` == "Cygwin" ]; then
-  ln -sf `pwd`/.minttyrc ~
+if [[ `uname` == *"CYGWIN"* ]]; then
+   echo "Installing cygwin specific files"
+   ln -sf `pwd`/.minttyrc ~
 fi
 
 # Configure git
 git config --global color.ui true
 git config --global user.name "Philip Jagielski"
-git config --global user.email "philipjagielski@gmail.com"
 git config --global core.editor vim
 git config --global merge.tool vimdiff
+if [ -z `git config --global user.email` ]; then
+   echo "REMEMBER: Tell git your email like this: git config --global user.email \"philipjagielski@gmail.com\""
+fi
 
 # source .bashrc_dotfiles if .bashrc doesn't already
+if [ ! -a ~/.bashrc ]; then
+   touch ~/.bashrc
+fi
 if ! grep -q bashrc_dotfiles ~/.bashrc; then
    echo "Sourcing bashrc_dotfiles in .bashrc"
    echo "source `pwd`/.bashrc_dotfiles" >> ~/.bashrc
