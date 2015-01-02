@@ -128,6 +128,8 @@ Bundle 'altercation/vim-colors-solarized'
 "let g:solarized_contrast="low"
 :silent! colorscheme solarized
 set background=dark
+" Solarized and gitgutter don't get along. See my comment here for how I fixed it
+" https://github.com/airblade/vim-gitgutter/issues/164#issuecomment-68559569
 
 syntax on
 set ruler              " show the line number on the bar
