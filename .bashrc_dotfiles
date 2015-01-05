@@ -54,6 +54,8 @@ alias myip='curl ip.appspot.com'
 # Works for versions less than 3. Py3 is python "-m http.server 8765"
 alias servethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
 
+GIT_PROMPT_THEME=Solarize
+GIT_PROMPT_FETCH_REMOTE_STATUS=0
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"  ]; then
     source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 fi
