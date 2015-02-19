@@ -151,6 +151,7 @@ set fo-=o              " automatically insert current comment leader when you hi
 
 set tabstop=3          " I prefer 3 spaces for tab
 set shiftwidth=3
+set shiftround         " Round indent to nearest multiple of shiftwidth
 set smarttab
 set expandtab
 set autoindent
