@@ -2,7 +2,6 @@
 # used by every PC I have. It is sourced by .bashrc so
 # the original bashrc for each system stays in place.
 
-
 # line editing like vim
 set -o vi
 
@@ -17,6 +16,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # git aliases
+alias g='git'
 alias gs='git status'
 alias gd='git diff'
 alias gc='git commit'
