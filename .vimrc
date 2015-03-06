@@ -103,6 +103,24 @@ let g:gitgutter_eager = 1
 
 Bundle 'vim-scripts/a.vim'
 
+Bundle 'vimwiki/vimwiki'
+let project_wiki = {}
+let project_wiki.path = '~/vimwiki/projects/'
+let project_wiki.nested_syntaxes = {'python': 'python', "c++": 'cpp'}
+
+" Plugins are sourced after the .vimrc. vimwiki will not map shortcuts
+" if there is already a map to that function, so make a dummy map to
+" <Plug>VimwikiIndex so it won't try to map <Leader>ww
+nmap <silent> <Leader>2dummy <Plug>VimwikiIndex
+nmap <silent> <Leader>ww <Plug>VimwikiTabIndex
+
+let garden_wiki = {}
+let garden_wiki.path = '~/vimwiki/garden/'
+"nmap <Leader>wg 2<Leader>wt
+nmap <silent> <Leader>wg 2<Plug>VimwikiTabIndex
+
+let g:vimwiki_list = [project_wiki, garden_wiki]
+
 " Plugin for expanding abbreviations
 " Bundle 'mattn/emmet-vim'
 
