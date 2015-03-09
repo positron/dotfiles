@@ -17,6 +17,8 @@ alias l='ls -CF'
 
 # git aliases
 alias g='git'
+# complete for 'g' as well as 'git'
+complete -o default -o nospace -F _git g
 alias gs='git status'
 alias gd='git diff'
 alias gc='git commit'
