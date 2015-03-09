@@ -19,6 +19,12 @@ To delete plugins after deleting them from `.vimrc`:
 
 [vundle]: https://github.com/gmarik/vundle
 
+## Windows specific
+
+Download vim [from here][winvim]. This build is 64bit with a lot of goodies compiled in.
+
+[winvim]: http://solar-blogg.blogspot.ca/p/vim-build.html
+
 ## Features
 Lots of stuff I have accumulated over the years.  :-)
 
