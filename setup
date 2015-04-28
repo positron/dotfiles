@@ -6,6 +6,11 @@ if [ ! -d ~/.vim/bundle/vundle ]; then
    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 fi
 
+# Install git-bash-prompt
+if [ ! -d ~/.bash-git-prompt ]; then
+   git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt
+fi
+
 # Configure vim
 ln -sf `pwd`/.vimrc ~
 mkdir -p ~/.vim/backupdir

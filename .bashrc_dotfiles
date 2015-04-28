@@ -58,6 +58,8 @@ alias servethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
 
 GIT_PROMPT_THEME=Solarize
 GIT_PROMPT_FETCH_REMOTE_STATUS=0
-if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"  ]; then
+if [ -f ~/.bash-git-prompt/gitprompt.sh ]; then
+   source ~/.bash-git-prompt/gitprompt.sh
+elif [ command -v brew 2>&- && -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"  ]; then
     source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 fi
