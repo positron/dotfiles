@@ -1,0 +1,18 @@
+[core]
+	editor = vim
+	precomposeunicode = true
+[user]
+	name = Philip Jagielski
+[color]
+	ui = true
+[merge]
+	tool = vimdiff
+	stat = true               # show diffstat at end of merge
+[push]
+	default = simple
+[advice]
+	statusHints = false       # disable "how to stage/unstage/add" hints
+[diff]
+	renames = copies          # `git diff` will do basic rename and copy detection
+[branch]
+	autosetupmerge = true     # automatically let the the local branch track the remote branch

@@ -35,15 +35,7 @@ if [[ `uname` == *"CYGWIN"* ]]; then
 fi
 
 # Configure git
-git config --global color.ui true
-git config --global user.name "Philip Jagielski"
-git config --global core.editor vim
-git config --global merge.tool vimdiff
-git config --global merge.stat true               # show diffstat at end of merge
-git config --global push.default simple
-git config --global advice.statusHints false      # disable "how to stage/unstage/add" hints
-git config --global diff.renames copies           # `git diff` will do basic rename and copy detection
-git config --global branch.autosetupmerge true    # automatically let the the local branch track the remote branch
+git config --global include.path `pwd`/gitconfig
 if [ -z `git config --global user.email` ]; then
    echo "REMEMBER: Tell git your email like this: git config --global user.email \"philipjagielski@gmail.com\""
 fi
