@@ -18,15 +18,15 @@ mkdir -p ~/.vim/undodir
 mkdir -p ~/.vim/swpdir
 #vim +BundleInstall! +qall
 
+# Configure screen
+ln -sf `pwd`/.screenrc ~
+
 # Configure tmux
 ln -sf `pwd`/.tmux.conf ~
 
 # Configure mercurial
-ln -sf `pwd`/mercurial/.hgrc ~
-ln -sf `pwd`/mercurial/hgignore.ini ~/.hgignore
-
-# Configure screen
-ln -sf `pwd`/.screenrc ~
+#ln -sf `pwd`/mercurial/.hgrc ~
+#ln -sf `pwd`/mercurial/hgignore.ini ~/.hgignore
 
 # If cygwin, configure mintty
 if [[ `uname` == *"CYGWIN"* ]]; then
