@@ -8,6 +8,9 @@
 	wip = commit -am "WIP"
 	undo = reset HEAD~1 --mixed
 	amend = commit -a --amend
+	serve = instaweb --httpd=webrick         # webbrick just requires ruby
+	stop = instaweb --httpd=webrick --stop
+	hub = daemon --base-path=. --export-all --reuseaddr --informative-errors --verbose --enable=receive-pack
 [user]
 	name = Philip Jagielski
 [color]
