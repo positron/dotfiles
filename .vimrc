@@ -192,10 +192,6 @@ if has("autocmd")
   filetype indent on
 endif
 
-" Abbreviations for c/cpp files. <buffer> means it's local to the buffer.
-autocmd FileType cpp :iabbrev <buffer> #i #include
-autocmd FileType cpp :iabbrev <buffer> #d #define
-
 "don't use spaces for makefiles...
 autocmd FileType make setlocal noexpandtab tabstop=3 shiftwidth=3
 
@@ -221,12 +217,14 @@ if exists("+guioptions")
    set go-=a go-=e go+=t
 endif
 
-" prefix std namespace TODO: only do this in cpp files
-"abb string std::string
-"abb vector std::vector
-"abb wstring std::wstring
-" map F4 to fix double std:: namespace resolutions sometimes caused by my abbreviations
-noremap <F4> <Esc>:%s/std::std::/std::/g<CR>
+" Abbreviations for c/cpp files. <buffer> means it's local to the buffer.
+autocmd FileType cpp :iabbrev <buffer> #i #include
+autocmd FileType cpp :iabbrev <buffer> #d #define
+autocmd FileType cpp :iabbrev <buffer> string std::string
+autocmd FileType cpp :iabbrev <buffer> vector std::vector
+autocmd FileType cpp :iabbrev <buffer> wstring std::wstring
+" fix double std:: namespace resolutions sometimes caused by my abbreviations
+noremap <leader>std <Esc>:%s/std::std::/std::/g<CR>
 
 " Avoid using the escape key because it's so far away!
 inoremap jj <Esc>
