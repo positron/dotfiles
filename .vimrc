@@ -226,6 +226,10 @@ autocmd FileType cpp :iabbrev <buffer> wstring std::wstring
 " fix double std:: namespace resolutions sometimes caused by my abbreviations
 noremap <leader>std <Esc>:%s/std::std::/std::/g<CR>
 
+" Bash abbreviations
+autocmd FileType sh :iabbrev <buffer> shebang #/usr/bin/env bash<CR><CR># unofficial bash "strict mode"<CR>set -euo pipefail<CR>IFS=$'\n\t'
+autocmd FileType sh :iabbrev <buffer> usestrict # unofficial bash "strict mode"<CR>set -euo pipefail<CR>IFS=$'\n\t'
+
 " Avoid using the escape key because it's so far away!
 inoremap jj <Esc>
 " Even faster, just mash j and k (side effect: saves buffer)
