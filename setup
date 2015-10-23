@@ -16,7 +16,7 @@ ln -sf `pwd`/.vimrc ~
 mkdir -p ~/.vim/backupdir
 mkdir -p ~/.vim/undodir
 mkdir -p ~/.vim/swpdir
-#vim +BundleInstall! +qall
+vim +BundleInstall! +qall
 
 # Configure screen
 ln -sf `pwd`/.screenrc ~
