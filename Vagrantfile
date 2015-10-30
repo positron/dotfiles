@@ -4,6 +4,7 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/vivid64"
 
   config.vm.network "forwarded_port", guest: 8000, host: 8000
+  config.vm.network "forwarded_port", guest: 4000, host: 4000
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
