@@ -104,7 +104,10 @@ let g:gitgutter_max_signs = 1000
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 
-Bundle 'vim-scripts/a.vim'
+Bundle 'fanchangyong/a.vim'
+" <Space>is is really not a good insert mode mapping.
+" this fork of a.vim lets us override it
+let g:InsertModeAlternateHeader = 0
 
 Bundle 'vimwiki/vimwiki'
 let project_wiki = {}
