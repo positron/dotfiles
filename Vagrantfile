@@ -3,8 +3,12 @@
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/wily64"
 
-  config.vm.network "forwarded_port", guest: 8000, host: 8000
+  config.vm.network "forwarded_port", guest: 80, host: 80
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
   config.vm.network "forwarded_port", guest: 4000, host: 4000
+  config.vm.network "forwarded_port", guest: 8000, host: 8000
+  config.vm.network "forwarded_port", guest: 25565, host: 25565
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
