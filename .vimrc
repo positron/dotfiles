@@ -42,6 +42,11 @@ let g:ctrlp_tabpage_position = 'a'
 " list files that start with a .
 let g:ctrlp_show_hidden = 1
 
+" ctrlp uses wildignore. These files we just want ctrlp alone to ignore though
+let g:ctrlp_custom_ignore = {
+  \ 'dir': 'node_modules',
+  \ }
+
 " Git wrapper
 Bundle 'tpope/vim-fugitive'
 
