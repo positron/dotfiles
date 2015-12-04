@@ -24,6 +24,11 @@ Bundle 'Raimondi/delimitMate'
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
+" aligning text by character. gl adds spaces before and gL after. e.g. glip=
+" aligns on the = character in the paragraph. 3gli), aligns 3 commas in the
+" inner parens.
+Bundle 'tommcdo/vim-lion'
+
 " Fuzzy finder for finding files
 Bundle 'ctrlpvim/ctrlp.vim'
 
