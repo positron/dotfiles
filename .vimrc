@@ -17,6 +17,8 @@ Bundle 'tpope/vim-repeat'
 " Guess the correct shiftwidth and expandtab based on the current file
 Bundle 'tpope/vim-sleuth'
 
+Bundle 'leafgarland/typescript-vim'
+
 Bundle 'rodjek/vim-puppet'
 let g:puppet_align_hashes = 0
 
