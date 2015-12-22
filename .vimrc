@@ -9,6 +9,9 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
+Bundle 'editorconfig/editorconfig-vim'
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
 Bundle 'tpope/vim-markdown'
 
 Bundle 'tpope/vim-surround'
