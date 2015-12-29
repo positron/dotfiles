@@ -21,6 +21,7 @@ alias g='git'
 complete -o default -o nospace -F _git g
 alias gs='git status'
 alias gd='git diff'
+alias gdc='git diff --cached'
 alias gc='git commit'
 alias gl='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias gitsearch='git rev-list --all | xargs git grep -F'
