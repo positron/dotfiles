@@ -251,12 +251,10 @@ noremap <leader>std <Esc>:%s/std::std::/std::/g<CR>
 autocmd FileType sh :iabbrev <buffer> shebang #/usr/bin/env bash<CR><CR># unofficial bash "strict mode"<CR>set -euo pipefail<CR>IFS=$'\n\t'
 autocmd FileType sh :iabbrev <buffer> usestrict # unofficial bash "strict mode"<CR>set -euo pipefail<CR>IFS=$'\n\t'
 
-" Avoid using the escape key because it's so far away!
-inoremap jj <Esc>
-" Even faster, just mash j and k (side effect: saves buffer)
+" Avoid using the escape key because it's so far away! just mash j and k
 inoremap jk <Esc>:w<CR>
 inoremap kj <Esc>:w<CR>
-set timeoutlen=400 " the default 1 second pause is too much for jk
+set timeoutlen=350 " the default 1 second pause is too much for jk
 
 " Use tab instead of escape to cancel prefix keys before a command in normal mode
 "nnoremap <Tab> <Esc>  " (This breaks Ctrl-I since it is <TAB>)
@@ -273,10 +271,6 @@ nnoremap Y y$
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
-
-" Make going to the next search result center on the line it's found in.
-"map N Nzz
-"map n nzz
 
 " ctags settings
 " search for a file named "tags" from the current directory down to root
