@@ -155,7 +155,8 @@ let g:vimwiki_list = [project_wiki, garden_wiki]
 Bundle 'takac/vim-commandcaps'
 
 " Ack is better than grep
-"Bundle 'mileszs/ack.vim'
+Bundle 'mileszs/ack.vim'
+nnoremap <Leader>ack :Ack 
 
 " Bundle 'vim-scripts/VimClojure'
 
