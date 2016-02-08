@@ -26,3 +26,5 @@
 	renames = copies          # `git diff` will do basic rename and copy detection
 [branch]
 	autosetupmerge = true     # automatically let the the local branch track the remote branch
+[pull]
+	rebase = true
