@@ -266,6 +266,11 @@ onoremap <Tab> <Esc>
 " Use tab instead of escape to cancel stuff in visual mode
 vnoremap <Tab> <Esc>gV
 
+" Display whitespace
+set listchars=tab:▸\ ,eol:¬,trail:·
+" toggle
+nmap <leader>l :set list!<CR>
+
 " Make Y behave like other capitals
 nnoremap Y y$
 
