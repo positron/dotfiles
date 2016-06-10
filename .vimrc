@@ -54,7 +54,7 @@ let g:ctrlp_show_hidden = 1
 
 " ctrlp uses wildignore. These files we just want ctrlp alone to ignore though
 let g:ctrlp_custom_ignore = {
-  \ 'dir': 'node_modules',
+  \ 'dir': 'node_modules\|bower_components\|dist\|typings\|.git\|tmp',
   \ }
 
 " Git wrapper
