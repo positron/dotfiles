@@ -1,0 +1,15 @@
+// Visual Studio Code settings
+// Place your settings in this file to overwrite the default settings
+{
+    "files.autoSave": "onFocusChange",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [ "j", "k" ],
+            "after": [ "<esc>:wq<CR>" ]
+        },
+        {
+            "before": [ "k", "j" ],
+            "after": [ "<esc>:wq<CR>" ]
+        }
+    ]
+}
