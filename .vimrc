@@ -165,7 +165,8 @@ nnoremap <Leader>ack :Ack
 
 " Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'altercation/vim-colors-solarized'
-"let g:solarized_contrast="low"
+" For some reason it looks like poop on OS X unless set the contrast to low
+let g:solarized_contrast="low"
 :silent! colorscheme solarized
 set background=dark
 
