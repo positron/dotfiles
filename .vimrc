@@ -57,6 +57,9 @@ let g:ctrlp_custom_ignore = {
   \ 'dir': 'node_modules\|bower_components\|dist\|typings\|.git\|tmp',
   \ }
 
+" Receive tmux focus events to update fugitive, gitgutter, etc
+Bundle 'tmux-plugins/vim-tmux-focus-events'
+
 " Git wrapper
 Bundle 'tpope/vim-fugitive'
 

@@ -11,6 +11,12 @@ if [ ! -d ~/.bash-git-prompt ]; then
    git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt
 fi
 
+# Install tmux plugin manager
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+   ~/.tmux/plugins/tpm/bin/install_plugins
+fi
+
 # Configure vim
 ln -sf `pwd`/.vimrc ~
 mkdir -p ~/.vim/backupdir
