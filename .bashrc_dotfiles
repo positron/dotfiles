@@ -79,9 +79,9 @@ shopt -s histappend                         # Set history file mode to append
 # -c clears the history list (bash in memory concept)
 # -r reads history file into the history list
 PROMPT_COMMAND="history -a;history -c;history -r;$PROMPT_COMMAND"
-export HISTSIZE=100000                      # big big history
-export HISTFILESIZE=10000
-export HISTCONTROL=ignorespace              # Don't save commands that start with space to bash history
+export HISTSIZE=100000         # big big history
+export HISTFILESIZE=100000
+export HISTCONTROL=ignorespace # Don't save commands that start with space (for passwords and stuff)
 
 # Harry potter aliases
 alias accio=wget
