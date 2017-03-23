@@ -19,6 +19,7 @@ fi
 
 # Configure vim
 ln -sf `pwd`/.vimrc ~
+ln -sf `pwd`/.ideavimrc ~
 mkdir -p ~/.vim/backupdir
 mkdir -p ~/.vim/undodir
 mkdir -p ~/.vim/swpdir

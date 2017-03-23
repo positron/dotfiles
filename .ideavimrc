@@ -1,0 +1,28 @@
+set surround
+
+inoremap jk <Esc>:w<CR>
+inoremap kj <Esc>:w<CR>
+set timeoutlen=350 " the default 1 second pause is too much for jk
+
+" Make Y behave like other capitals
+nnoremap Y y$
+
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+let mapleader=<Space>
+
+" Remove trailing whitespace
+:nnoremap <leader>sw :%s/\s\+$//e<CR>
+
+
+" clojure mappings
+" load file to repl
+nnoremap <leader>r :action :cursive.repl.actions/load-file<CR>:action :cursive.repl.actions/jump-to-repl<CR>
+" reload all changed dependencies
+nnoremap <leader>rr :action :cursive.repl.actions/sync-files<CR>:action :cursive.repl.actions/jump-to-repl<CR>
+" set repl namespace to current file
+nnoremap <leader>n :action :cursive.repl.actions/switch-namespace<CR>:action :cursive.repl.actions/jump-to-repl<CR>
+" reload file, and set repl namespace to current file
+nnoremap <leader>rn :action :cursive.repl.actions/load-file<CR>:action :cursive.repl.actions/switch-namespace<CR>:action :cursive.repl.actions/jump-to-repl<CR>
