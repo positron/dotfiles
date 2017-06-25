@@ -4,6 +4,7 @@
 [alias]
 	co = checkout
 	cob = checkout -b
+   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
 	ec = config --global -e
 	wip = commit -am "WIP"
 	undo = reset HEAD~1 --mixed
