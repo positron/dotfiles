@@ -25,6 +25,7 @@
 	statusHints = false       # disable "how to stage/unstage/add" hints
 [diff]
 	renames = copies          # `git diff` will do basic rename and copy detection
+	algorithm = histogram
 [branch]
 	autosetupmerge = true     # automatically let the the local branch track the remote branch
 [pull]
