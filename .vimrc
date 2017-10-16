@@ -253,7 +253,7 @@ autocmd FileType cpp :iabbrev <buffer> wstring std::wstring
 noremap <leader>std <Esc>:%s/std::std::/std::/g<CR>
 
 " Bash abbreviations
-autocmd FileType sh :iabbrev <buffer> shebang #/usr/bin/env bash<CR><CR># unofficial bash "strict mode"<CR>set -euo pipefail<CR>IFS=$'\n\t'
+autocmd FileType sh :iabbrev <buffer> shebang #!/usr/bin/env bash<CR><CR># unofficial bash "strict mode"<CR>set -euo pipefail<CR>IFS=$'\n\t'
 autocmd FileType sh :iabbrev <buffer> usestrict # unofficial bash "strict mode"<CR>set -euo pipefail<CR>IFS=$'\n\t'
 
 " Avoid using the escape key because it's so far away! just mash j and k
