@@ -11,11 +11,17 @@ if [ ! -d ~/.bash-git-prompt ]; then
    git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt
 fi
 
+# Configure tmux
+ln -sf `pwd`/.tmux.conf ~
+
 # Install tmux plugin manager
 if [ ! -d ~/.tmux/plugins/tpm ]; then
    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
    ~/.tmux/plugins/tpm/bin/install_plugins
 fi
+
+# Configure screen
+ln -sf `pwd`/.screenrc ~
 
 # Configure vim
 ln -sf `pwd`/.vimrc ~
@@ -24,12 +30,6 @@ mkdir -p ~/.vim/backupdir
 mkdir -p ~/.vim/undodir
 mkdir -p ~/.vim/swpdir
 vim +BundleInstall! +qall
-
-# Configure screen
-ln -sf `pwd`/.screenrc ~
-
-# Configure tmux
-ln -sf `pwd`/.tmux.conf ~
 
 # Configure mercurial
 #ln -sf `pwd`/mercurial/.hgrc ~
