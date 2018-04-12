@@ -20,7 +20,7 @@
 	tool = vimdiff
 	stat = true               # show diffstat at end of merge
 [push]
-	default = simple
+	default = simple          # push to matching branch on origin
 [advice]
 	statusHints = false       # disable "how to stage/unstage/add" hints
 [diff]
