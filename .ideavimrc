@@ -11,7 +11,8 @@ nnoremap Y y$
 vnoremap < <gv
 vnoremap > >gv
 
-let mapleader=<Space>
+" ideavim currently supports this, but not <Space> or \<Space>
+let mapleader=" "
 
 " Remove trailing whitespace
 :nnoremap <leader>sw :%s/\s\+$//e<CR>
