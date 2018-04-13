@@ -1,7 +1,7 @@
 set surround
 
-inoremap jk <Esc>:w<CR>
-inoremap kj <Esc>:w<CR>
+inoremap jk <Esc>
+inoremap kj <Esc>
 set timeoutlen=350 " the default 1 second pause is too much for jk
 
 " Make Y behave like other capitals
