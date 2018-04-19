@@ -22,8 +22,15 @@ let mapleader=" "
 " load file to repl
 nnoremap <leader>r :action :cursive.repl.actions/load-file<CR>:action :cursive.repl.actions/jump-to-repl<CR>
 " reload all changed dependencies
-nnoremap <leader>rr :action :cursive.repl.actions/sync-files<CR>:action :cursive.repl.actions/jump-to-repl<CR>
+nnoremap <leader>a :action :cursive.repl.actions/sync-files<CR>:action :cursive.repl.actions/jump-to-repl<CR>
 " set repl namespace to current file
 nnoremap <leader>n :action :cursive.repl.actions/switch-namespace<CR>:action :cursive.repl.actions/jump-to-repl<CR>
 " reload file, and set repl namespace to current file
 nnoremap <leader>rn :action :cursive.repl.actions/load-file<CR>:action :cursive.repl.actions/switch-namespace<CR>:action :cursive.repl.actions/jump-to-repl<CR>
+
+" conflicting mappings
+map <leader>b :action GotoDeclaration<CR>
+map <leader>e :action RecentFiles<CR>
+
+" Enable for clojure
+" set iskeyword=@,48-57,_,192-255,?,-,*,!,+,/,=,<,>,.,:,$
