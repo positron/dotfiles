@@ -96,6 +96,9 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 " Just show the filename (no path) in the tab
 let g:airline#extensions#tabline#fnamemod = ':t'
 
+" trying to get rid of the filename in the top right...
+"let g:airline#extensions#tabline#show_tab_type = 0
+
 " Don't show buffer numbers in the tab line
 let g:airline#extensions#tabline#buffer_nr_show = 0
 
