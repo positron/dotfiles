@@ -132,8 +132,10 @@ let g:InsertModeAlternateHeader = 0
 
 Bundle 'vimwiki/vimwiki'
 let project_wiki = {}
-let project_wiki.path = '~/vimwiki/projects/'
+let project_wiki.path = '~/vimwiki/main/'
 let project_wiki.nested_syntaxes = {'python': 'python', "c++": 'cpp'}
+let project_wiki.syntax = 'markdown'
+let project_wiki.ext = '.md'
 
 " Plugins are sourced after the .vimrc. vimwiki will not map shortcuts
 " if there is already a map to that function, so make a dummy map to
@@ -143,7 +145,8 @@ nmap <silent> <Leader>ww <Plug>VimwikiTabIndex
 
 let garden_wiki = {}
 let garden_wiki.path = '~/vimwiki/garden/'
-"nmap <Leader>wg 2<Leader>wt
+let garden_wiki.syntax = 'markdown'
+let garden_wiki.ext = '.md'
 nmap <silent> <Leader>wg 2<Plug>VimwikiTabIndex
 
 let g:vimwiki_list = [project_wiki, garden_wiki]
