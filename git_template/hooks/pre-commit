@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Fail on the string NOCOMMIT
+if git diff --cached | grep '^[+d].*NOCOMMIT'; then
+  echo
+  echo "Tried to commit a line containing NOCOMMIT"
+  exit 1
+fi
+
+# Don't commit to master
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+if [[ "$BRANCH" == "master" || "$BRANCH" == "develop" ]]; then
+  echo "You are on branch $BRANCH. Are you sure you want to commit to this branch?"
+  echo "If so, commit with -n to bypass this pre-commit hook."
+  exit 1
+fi
