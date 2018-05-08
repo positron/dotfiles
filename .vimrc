@@ -63,6 +63,9 @@ Bundle 'tmux-plugins/vim-tmux-focus-events'
 " Git wrapper
 Bundle 'tpope/vim-fugitive'
 
+" Run :Obsess to start a vim session with automatic saving 'n stuff
+Bundle 'tpope/vim-obsession'
+
 " Mercurial wrapper inspired by fugitive
 "Bundle 'ludovicchabant/vim-lawrencium'
 
@@ -240,9 +243,9 @@ let g:alternateRelativeFiles = 1      " something about the cwd
 noremap <C-C><C-C> <Esc>:up<CR>:A<CR>
 
 " note: ctrlp uses wildignore
-set wildignore+=*/venv/*,*/_site/*
-set wildignore+=*\\venv\\*,*\\_site\\*
-set wildignore+=tags
+set wildignore+=*/venv/*,*/_site/*,*/target/*
+set wildignore+=*\\venv\\*,*\\_site\\*,*\\target\\*
+set wildignore+=tags,Session.vim
 
 " Set up the tabline so it won't show the hugely long ugly paths
 if exists("+guioptions")
