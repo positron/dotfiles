@@ -14,6 +14,18 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 Bundle 'tpope/vim-markdown'
 
+" Clojure support
+" vim-classpath takes several seconds the first time you open a java or clojure file in a
+" new project
+"Bundle 'tpope/vim-classpath'
+Bundle 'tpope/vim-fireplace'
+nmap <leader>r :w<CR>:Require<CR>
+nmap <leader>rr :w<CR>:Require!<CR>
+"Bundle 'vim-scripts/paredit.vim'
+
+" Look in to this when it supports ranges https://github.com/venantius/vim-cljfmt/issues/9
+"Bundle 'venantius/vim-cljfmt'
+
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 
@@ -169,8 +181,6 @@ Bundle 'takac/vim-commandcaps'
 " Ack is better than grep
 Bundle 'mileszs/ack.vim'
 nnoremap <Leader>ack :Ack 
-
-" Bundle 'vim-scripts/VimClojure'
 
 "Bundle 'Lokaltog/vim-easymotion'
 "let g:EasyMotion_leader_key = '<Leader>'
