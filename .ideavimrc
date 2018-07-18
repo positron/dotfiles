@@ -33,4 +33,4 @@ map <leader>b :action GotoDeclaration<CR>
 map <leader>e :action RecentFiles<CR>
 
 " Enable for clojure
-" set iskeyword=@,48-57,_,192-255,?,-,*,!,+,/,=,<,>,.,:,$
+set iskeyword=@,48-57,_,192-255,?,-,*,!,+,/,=,<,>,.,:,$

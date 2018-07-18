@@ -75,6 +75,9 @@ Bundle 'tmux-plugins/vim-tmux-focus-events'
 " Git wrapper
 Bundle 'tpope/vim-fugitive'
 
+" override default wrapping
+au FileType gitcommit setlocal tw=
+
 " Run :Obsess to start a vim session with automatic saving 'n stuff
 Bundle 'tpope/vim-obsession'
 
@@ -192,9 +195,12 @@ let g:solarized_contrast="low"
 :silent! colorscheme solarized
 set background=dark
 
+filetype plugin indent on
+
 syntax on
 set ruler              " show the line number on the bar
 set bs=2               " make backspace work
+set switchbuf=usetab   " go to a window or tab that already has a buffer open when switching to it (e.g. with gd)
 set autoread           " autoreload the file after !shell commands
 set magic              " mostly same regex rules as grep
 set scrolloff=3        " leave 3 lines between the cursor and the top/bot of screen
