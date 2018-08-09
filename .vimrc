@@ -175,6 +175,9 @@ let g:vimwiki_list = [project_wiki, garden_wiki]
 
 "Bundle 'lepture/vim-jinja'
 
+" Brewfile syntax
+Bundle 'bfontaine/Brewfile.vim'
+
 " make stuff like :Wq work!
 Bundle 'takac/vim-commandcaps'
 
