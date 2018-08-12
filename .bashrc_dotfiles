@@ -2,6 +2,8 @@
 # used by every PC I have. It is sourced by .bashrc so
 # the original bashrc for each system stays in place.
 
+eval "#(fasd --init auto)"
+
 # line editing like vim
 set -o vi
 
