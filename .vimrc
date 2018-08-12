@@ -3,51 +3,56 @@ filetype off   " required by vundle
 
 let mapleader=" "
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" Install vim-plug if it is not there
+" Note: To update vim-plug, run `:PlugUpgrade`
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+" 
+call plug#begin('~/.vim/plugged')
 
-Bundle 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
-Bundle 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown'
 
 " Clojure support
 " vim-classpath takes several seconds the first time you open a java or clojure file in a
 " new project
-"Bundle 'tpope/vim-classpath'
-Bundle 'tpope/vim-fireplace'
+"Plug 'tpope/vim-classpath'
+Plug 'tpope/vim-fireplace'
 nmap <leader>r :w<CR>:Require<CR>
 nmap <leader>rr :w<CR>:Require!<CR>
-"Bundle 'vim-scripts/paredit.vim'
+"Plug 'vim-scripts/paredit.vim'
 
 " Look in to this when it supports ranges https://github.com/venantius/vim-cljfmt/issues/9
-"Bundle 'venantius/vim-cljfmt'
+"Plug 'venantius/vim-cljfmt'
 
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 " Guess the correct shiftwidth and expandtab based on the current file
-Bundle 'tpope/vim-sleuth'
+Plug 'tpope/vim-sleuth'
 
-Bundle 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 
-Bundle 'rodjek/vim-puppet'
+Plug 'rodjek/vim-puppet'
 let g:puppet_align_hashes = 0
 
-Bundle 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
 " aligning text by character. gl adds spaces before and gL after. e.g. glip=
 " aligns on the = character in the paragraph. 3gli), aligns 3 commas in the
 " inner parens.
-Bundle 'tommcdo/vim-lion'
+Plug 'tommcdo/vim-lion'
 
 " Fuzzy finder for finding files
-Bundle 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " open newly created files in a new tab
 let g:ctrlp_open_new_file = 't'
@@ -70,18 +75,18 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " Receive tmux focus events to update fugitive, gitgutter, etc
-Bundle 'tmux-plugins/vim-tmux-focus-events'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Git wrapper
-Bundle 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Run :Obsess to start a vim session with automatic saving 'n stuff
-Bundle 'tpope/vim-obsession'
+Plug 'tpope/vim-obsession'
 
 " Mercurial wrapper inspired by fugitive
-"Bundle 'ludovicchabant/vim-lawrencium'
+"Plug 'ludovicchabant/vim-lawrencium'
 
-Bundle 'bling/vim-airline'
+Plug 'bling/vim-airline'
 set laststatus=2 " without this, vim-airline doesn't show until you create a split
 
 " inactive windows should have the left section collapsed to only the filename of that buffer
@@ -129,7 +134,7 @@ let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#ctrlp#color_template = 'normal'
 
 " Gutter for displaying what lines changed since last commit
-Bundle 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 nmap <leader>gj <Plug>GitGutterNextHunk
 nmap <leader>gk <Plug>GitGutterPrevHunk
@@ -140,12 +145,12 @@ let g:gitgutter_max_signs = 1000
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 
-Bundle 'fanchangyong/a.vim'
+Plug 'fanchangyong/a.vim'
 " <Space>is is really not a good insert mode mapping.
 " this fork of a.vim lets us override it
 let g:InsertModeAlternateHeader = 0
 
-Bundle 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
 let project_wiki = {}
 let project_wiki.path = '~/vimwiki/main/'
 let project_wiki.nested_syntaxes = {'python': 'python', "c++": 'cpp'}
@@ -167,33 +172,35 @@ nmap <silent> <Leader>wg 2<Plug>VimwikiTabIndex
 let g:vimwiki_list = [project_wiki, garden_wiki]
 
 " Plugin for expanding abbreviations
-" Bundle 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 
-"Bundle 'jnwhiteh/vim-golang'
+"Plug 'jnwhiteh/vim-golang'
 " Run gofmt whenever I save go files
 "autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
-"Bundle 'lepture/vim-jinja'
+"Plug 'lepture/vim-jinja'
 
 " Brewfile syntax
-Bundle 'bfontaine/Brewfile.vim'
+Plug 'bfontaine/Brewfile.vim'
 
-" make stuff like :Wq work!
-Bundle 'takac/vim-commandcaps'
+" make accidentally holding shift for too long work, like :Wq
+Plug 'takac/vim-commandcaps'
 
 " Ack is better than grep
-Bundle 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 nnoremap <Leader>ack :Ack 
 
-"Bundle 'Lokaltog/vim-easymotion'
+"Plug 'Lokaltog/vim-easymotion'
 "let g:EasyMotion_leader_key = '<Leader>'
 
-" Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-Bundle 'altercation/vim-colors-solarized'
-" For some reason it looks like poop on OS X unless set the contrast to low
-let g:solarized_contrast="low"
-:silent! colorscheme solarized
+" Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Plug 'altercation/vim-colors-solarized'
 set background=dark
+
+" Plugins become visible to Vim after this call
+call plug#end()
+
+:silent! colorscheme solarized
 
 syntax on
 set ruler              " show the line number on the bar
