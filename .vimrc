@@ -11,8 +11,14 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" 
 call plug#begin('~/.vim/plugged')
+
+" Install fzf globally. Do this through vim since the fzf repo also has a basic vim wrapper
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf.vim' " Add better bindings than the default fzf vim plugin
+
+" Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
 
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
