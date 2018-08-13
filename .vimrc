@@ -146,6 +146,9 @@ nmap <leader>gj <Plug>GitGutterNextHunk
 nmap <leader>gk <Plug>GitGutterPrevHunk
 " gitgutter maps <leader>hs and <leader>hr to stage and revert hunks
 
+" A global vim setting that GitGutter uses
+set updatetime=100 "100 ms
+
 " performance settings
 let g:gitgutter_max_signs = 1000
 let g:gitgutter_realtime = 1
