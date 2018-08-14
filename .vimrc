@@ -34,6 +34,10 @@ nmap <leader>r :w<CR>:Require<CR>
 nmap <leader>rr :w<CR>:Require!<CR>
 "Plug 'vim-scripts/paredit.vim'
 
+" Add and remove clojure imports
+Plug 'guns/vim-slamhound'
+nnoremap <Leader>sh :Slamhound<CR>
+
 " Look in to this when it supports ranges https://github.com/venantius/vim-cljfmt/issues/9
 "Plug 'venantius/vim-cljfmt'
 

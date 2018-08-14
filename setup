@@ -48,6 +48,10 @@ if [ -z `git config --global user.email` ]; then
    echo "REMINDER: Tell git your email like this: git config --global user.email \"philipjagielski@gmail.com\""
 fi
 
+# Configure lein
+mkdir -p ~/.lein
+ln -sf `pwd`/profiles.clj ~/.lein/
+
 # source .bashrc_dotfiles if .bashrc doesn't already
 if [ ! -a ~/.bashrc ]; then
    touch ~/.bashrc
