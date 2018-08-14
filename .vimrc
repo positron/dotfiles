@@ -20,6 +20,9 @@ Plug 'junegunn/fzf.vim' " Add better bindings than the default fzf vim plugin
 " Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
 
+nmap <leader>f :Files<CR>
+nmap <leader>s :Ag<CR>
+
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
@@ -62,29 +65,6 @@ let delimitMate_expand_space = 1
 " aligns on the = character in the paragraph. 3gli), aligns 3 commas in the
 " inner parens.
 Plug 'tommcdo/vim-lion'
-
-" Fuzzy finder for finding files
-Plug 'ctrlpvim/ctrlp.vim'
-
-" open newly created files in a new tab
-let g:ctrlp_open_new_file = 't'
-
-" open multiple files in tabs
-let g:ctrlp_open_multiple_files = 't'
-
-" switch to a tab if a file is already open
-let g:ctrlp_switch_buffer = 2
-
-" make opening new tabs work like :tabnew (inserts new tab into next position in list)
-let g:ctrlp_tabpage_position = 'a'
-
-" list files that start with a .
-let g:ctrlp_show_hidden = 1
-
-" ctrlp uses wildignore. These files we just want ctrlp alone to ignore though
-let g:ctrlp_custom_ignore = {
-  \ 'dir': 'node_modules\|bower_components\|dist\|typings\|.git\|tmp',
-  \ }
 
 " Receive tmux focus events to update fugitive, gitgutter, etc
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -142,9 +122,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 0
 " enable/disable showing a summary of changed hunks under source control
 let g:airline#extensions#hunks#enabled = 1
 
-" Change the colors of ctrl-p to match airline
-let g:airline#extensions#ctrlp#color_template = 'normal'
-
 " Gutter for displaying what lines changed since last commit
 Plug 'airblade/vim-gitgutter'
 
@@ -200,10 +177,6 @@ Plug 'bfontaine/Brewfile.vim'
 
 " make accidentally holding shift for too long work, like :Wq
 Plug 'takac/vim-commandcaps'
-
-" Ack is better than grep
-Plug 'mileszs/ack.vim'
-nnoremap <Leader>ack :Ack 
 
 "Plug 'Lokaltog/vim-easymotion'
 "let g:EasyMotion_leader_key = '<Leader>'
@@ -277,7 +250,6 @@ let g:alternateRelativeFiles = 1      " something about the cwd
 " use :up instead of :w so you don't write the file when you didn't change anything and confuse make
 noremap <C-C><C-C> <Esc>:up<CR>:A<CR>
 
-" note: ctrlp uses wildignore
 set wildignore+=*/venv/*,*/_site/*,*/target/*
 set wildignore+=*\\venv\\*,*\\_site\\*,*\\target\\*
 set wildignore+=tags,Session.vim
