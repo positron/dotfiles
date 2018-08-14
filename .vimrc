@@ -127,7 +127,7 @@ Plug 'airblade/vim-gitgutter'
 
 nmap <leader>gj <Plug>GitGutterNextHunk
 nmap <leader>gk <Plug>GitGutterPrevHunk
-" gitgutter maps <leader>hs and <leader>hr to stage and revert hunks
+" gitgutter maps <leader>hs and <leader>hu to stage and undo hunks
 
 " A global vim setting that GitGutter uses
 set updatetime=100 "100 ms
@@ -137,7 +137,7 @@ let g:gitgutter_max_signs = 1000
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 
-Plug 'fanchangyong/a.vim'
+Plug 'fanchangyong/a.vim' " Switch between source and header files easily (e.g. .cpp and .h)
 " <Space>is is really not a good insert mode mapping.
 " this fork of a.vim lets us override it
 let g:InsertModeAlternateHeader = 0
