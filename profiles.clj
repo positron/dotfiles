@@ -7,7 +7,18 @@
             [lein-ancient "RELEASE"]
             ; pprint a representation of the project map
             [lein-pprint "RELEASE"]
+            ; alias common things in user ns for use in repl. Configured below. Usage:
+            [com.gfredericks/lein-shorthand "RELEASE"]
             ]
   :dependencies [; automatically remove and add requirements in namespaces
                  [slamhound "RELEASE"]
-                 ]}}
+                 [alembic "RELEASE"]
+                 ]
+  :shorthand {. {pp clojure.pprint/pprint
+                 ; adds dependency to classpath: (./add-dep '[foo.bar "version"])
+                 add-dep alembic.still/distill
+                 ; reloads project.clj
+                 load-project alembic.still/load-project
+                 ; calls leiningen: (./lein deps :tree)
+                 lein alembic.still/lein
+                 }}}}
