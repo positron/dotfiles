@@ -33,7 +33,7 @@ Plug 'tpope/vim-fireplace'
 nmap <leader>r :w<CR>:Require<CR>
 nmap <leader>rr :w<CR>:Require!<CR>
 
-autocmd FileType clojure nmap gd ]<C-D>
+autocmd FileType clojure nmap <buffer> gd ]<C-D>
 "Plug 'vim-scripts/paredit.vim'
 
 " Add and remove clojure imports
