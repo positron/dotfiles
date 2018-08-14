@@ -32,6 +32,8 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-fireplace'
 nmap <leader>r :w<CR>:Require<CR>
 nmap <leader>rr :w<CR>:Require!<CR>
+
+autocmd FileType clojure nmap gd ]<C-D>
 "Plug 'vim-scripts/paredit.vim'
 
 " Add and remove clojure imports
@@ -366,10 +368,17 @@ let g:lasttab = 1
 nmap <C-l> :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
+" duplicate current tab
+nnoremap <leader>ts :tab split<CR>
+
 " Save and load the folds each time we open/close a file (as long as it has a name)
 " VimEnter because: http://stackoverflow.com/questions/8854371/vim-how-to-restore-the-cursors-logical-and-physical-positions
 au BufWinLeave .+ mkview
 au VimEnter .+ silent loadview
+
+" Remap gf to open in new tabs
+nmap gf <C-W>gf
+vmap gf <C-W>gf
 
 " tab completion of file names
 set wildmenu
