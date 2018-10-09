@@ -4,6 +4,10 @@
 
 eval "#(fasd --init auto)"
 
+# Use fd to respect .gitignore
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # line editing like vim
 set -o vi
 
@@ -20,6 +24,7 @@ alias l='ls -CF'
 # git aliases
 alias g='git'
 # complete for 'g' as well as 'git'
+alias git=hub
 complete -o default -o nospace -F _git g
 alias gs='git status'
 alias gd='git diff'
