@@ -9,9 +9,17 @@
 	wip = commit -am "WIP"
 	undo = reset HEAD~1 --mixed
 	amend = commit -a --amend
+	fixup = commit --amend -C HEAD
 	serve = instaweb --httpd=webrick         # webbrick just requires ruby
 	stop = instaweb --httpd=webrick --stop
+	# enable others to push to you
 	hub = daemon --base-path=. --export-all --reuseaddr --informative-errors --verbose --enable=receive-pack
+
+	# diff, etc between current state and latest branch/merge point
+	diffme = !sh -c \"git diff --no-merges `git oldest-ancestor`..\"
+	statme = !sh -c \"git diff --stat --no-merges `git oldest-ancestor`..\"
+	logme = !sh -c \"git log --no-merges `git oldest-ancestor`..\"
+	oldest-ancestor = !bash -c 'diff -u <(git rev-list --first-parent \"${1:-origin/master}\") <(git rev-list --first-parent \"${2:-HEAD}\") | sed -ne \"s/^ //p\" | head -1' -
 [user]
 	name = Philip Jagielski
 [color]
