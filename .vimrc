@@ -3,6 +3,17 @@ filetype off   " required by vundle
 
 let mapleader=" "
 
+" Profiling things to try when things slow down
+" - Comment out plug#begin to disable all plugins
+"   - binary search if that fixes it
+"   - or :profile start, :profile func *, :profile file *, <do stuff that is slow>, :profile pause, :qa!
+" - Turn off syntax highlighting
+"   - :syntime on, then :syntime report if that fixes it
+"   - or mess with set re=1 setting to change regex engine
+" - Look for expensive autocommand groups (or duplicates)
+"   - :au CursorMoved
+" - Use vim --startuptime <files> to profile startup time
+
 " Install vim-plug if it is not there
 " Note: To update vim-plug, run `:PlugUpgrade`
 if empty(glob('~/.vim/autoload/plug.vim'))
