@@ -21,12 +21,19 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+" TODO for nvim
+" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 call plug#begin('~/.vim/plugged')
 
 " Install fzf globally. Do this through vim since the fzf repo also has a basic vim wrapper
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim' " Add better bindings than the default fzf vim plugin
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and previous-history instead of down and up.
+let g:fzf_history_dir = '~/.vim/fzf-history'
 
 " Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
