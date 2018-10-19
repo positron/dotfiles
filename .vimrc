@@ -46,26 +46,69 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 Plug 'tpope/vim-markdown'
 
-" Clojure support
-" vim-classpath takes several seconds the first time you open a java or clojure file in a
-" new project
-"Plug 'tpope/vim-classpath'
-Plug 'tpope/vim-fireplace'
-nmap <leader>r :w<CR>:Require<CR>
-nmap <leader>rr :w<CR>:Require!<CR>
+" ------ Clojure support ------
+" this is shipped with modern version of vim, but use latest version anyway
+Plug 'guns/vim-clojure-static'
 
+Plug 'tpope/vim-fireplace'
+" require :reload current namespace
+nmap <leader>rr  :w<CR>:Require<CR>
+" require :reload-all current namespace
+nmap <leader>ra  :w<CR>:Require!<CR>
+" run the test at or above the cursor
+nmap <leader>rt  :w<CR>:.RunTests<CR>
+" run all tests in namespace
+nmap <leader>rnt :w<CR>:RunTests<CR>
+
+" gd in clojure files uses fireplace go to definition
 autocmd FileType clojure nmap <buffer> gd ]<C-D>
-"Plug 'vim-scripts/paredit.vim'
+
+" vim-classpath lets you use fireplace without a repl session, but each invocation takes several seconds :/
+"Plug 'tpope/vim-classpath'
 
 " Add and remove clojure imports
 Plug 'guns/vim-slamhound'
-nnoremap <Leader>sh :Slamhound<CR>
+nnoremap <Leader>sh :w<CR>:Slamhound<CR>
 
 " Look in to this when it supports ranges https://github.com/venantius/vim-cljfmt/issues/9
 "Plug 'venantius/vim-cljfmt'
 
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+    \ 'ctermfgs': ['darkmagenta', 'darkblue', 'red', 'darkcyan', 'darkred', 'brown', 'darkgreen'],
+    \ 'guifgs': ['darkmagenta', 'darkblue', 'red', 'darkcyan', 'darkred', 'brown', 'darkgreen']
+\ }
+
+" Clojure plugins to try:
+" abbrev break! (com.gfredericks.debug-repl.http-intercept/break!)
+" command! -buffer LoadDebugger :Eval (require 'com.gfredericks.debug-repl.http-intercept 'com.gfredericks.debug-repl)<CR>
+" command! -buffer Unbreak :Eval (com.gfredericks.debug-repl/unbreak!)
+" command! -buffer WaitForBreak :Eval (com.gfredericks.debug-repl.http-intercept/wait-for-breaks)
+" setlocal foldmethod=syntax " non local? want this all the time?
+" nnoremap <buffer> gs :<C-u>exe "norm \<Plug>FireplaceDjump"<CR>zOzz:call halo#run({'shape': 'cross2'})<CR>
+" TODO search for other uses of vim-halo in this guy's config?
+" https://github.com/guns/vim-clojure-highlight
+" https://github.com/clojure-vim/clj-refactor.nvim
+" https://github.com/markwoodhall/vim-figwheel
+" https://github.com/gfredericks/debug-repl
+
+" NOTE! To get meta mappings to work you need to make sure your keyboard maps Alt to Meta
+" On iTerm2 you can do this in Preferences -> Profiles -> Keys
+Plug 'snoe/vim-sexp' "This is a fork of guns/vim-sexp with the addition of not moving the cursor when slurping and barfing
+let g:sexp_enable_insert_mode_mappings = 1
+
+" This plugin looks cool, but it breaks some vim-sexp hotkeys for some reason
+"Plug 'bhurlow/vim-parinfer'
+
+" Manipulate surrounds. Super useful for non-lispy languages too
 Plug 'tpope/vim-surround'
+
+" Enables repeating actions added by other plugins (e.g. vim-surround) with .
 Plug 'tpope/vim-repeat'
+
+" Underlines current word (easy to see where variables or :keywords are used further down the code)
+Plug 'itchyny/vim-cursorword'
 
 " Guess the correct shiftwidth and expandtab based on the current file
 Plug 'tpope/vim-sleuth'
@@ -89,9 +132,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Git wrapper
 Plug 'tpope/vim-fugitive'
-
-" Run :Obsess to start a vim session with automatic saving 'n stuff
-Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-rhubarb' " Github support (e.g. :Gbrowse for source and commits). See README for token generation
 
 " Mercurial wrapper inspired by fugitive
 "Plug 'ludovicchabant/vim-lawrencium'
@@ -148,7 +189,7 @@ nmap <leader>gk <Plug>GitGutterPrevHunk
 " gitgutter maps <leader>hs and <leader>hu to stage and undo hunks
 
 " A global vim setting that GitGutter uses
-set updatetime=100 "100 ms
+set updatetime=200 " ms
 
 " performance settings
 let g:gitgutter_max_signs = 1000
@@ -225,6 +266,8 @@ set showmode           " show insert/visual/normal in the status line
 set cpo+=J             " a sentence has to be followed by two spaces after a ., !, or ?
 set fo-=c              " automatically text wrap comments
 set fo-=o              " automatically insert current comment leader when you hit o or O
+set switchbuf=usetab,newtab " Switch to existing tab if the buffer is open
+set history=9999       " the default is 20... lol
 
 set tabstop=3          " I prefer 3 spaces for tab
 set shiftwidth=3
@@ -249,9 +292,8 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-if has("autocmd")
-  filetype indent on
-endif
+filetype indent on
+filetype plugin indent on
 
 "don't use spaces for makefiles...
 autocmd FileType make setlocal noexpandtab tabstop=3 shiftwidth=3
@@ -294,6 +336,13 @@ autocmd FileType sh :iabbrev <buffer> usestrict # unofficial bash "strict mode"<
 inoremap jk <Esc>:w<CR>
 inoremap kj <Esc>:w<CR>
 set timeoutlen=350 " the default 1 second pause is too much for jk
+
+" When editing clojurescript code we almost always have figwheel running, so control saving manually
+autocmd BufRead,BufNewFile *.cljs inoremap <buffer> jk <Esc>
+autocmd BufRead,BufNewFile *.cljs inoremap <buffer> kj <Esc>
+
+nnoremap <Leader>wa :wa<CR>
+nnoremap <Leader>w :w<CR>
 
 " Use tab instead of escape to cancel prefix keys before a command in normal mode
 "nnoremap <Tab> <Esc>  " (This breaks Ctrl-I since it is <TAB>)
@@ -349,9 +398,8 @@ nnoremap <leader>pwd :echo expand('%:p')<CR>
 "autocmd BufWritePre * :%s/\s\+$//e
 
 " Let space toggle a fold if we are in one, otherwise do the default behavior
-" TODO: maybe map this to double space?
-"nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-"vnoremap <Space> zf
+nnoremap <silent> <Space> @=(foldlevel('.')?'zA':"\<Space>")<CR>
+vnoremap <Space> zf
 
 " Map C-l to toggle to the last tab (this overrides 'Clear and redraw screen', so use :redraw! instead)
 let g:lasttab = 1
