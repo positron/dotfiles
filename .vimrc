@@ -40,6 +40,8 @@ let g:fzf_buffers_jump = 1
 
 nmap <leader>f :Files<CR>
 nmap <leader>s :Ag<CR>
+" Ag on the word under the cursor
+nnoremap <silent> <leader>k :Ag <C-R><C-W><CR>
 
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
