@@ -2,10 +2,12 @@
 
 # Essential command line tools
 brew 'vim', args: ['--with-override-system-vi']
+brew 'neovim'
 cask 'macvim'
 brew 'tmux'
 brew 'git'
 brew 'gist'
+brew 'hub'
 brew 'fasd'
 brew 'fd'
 brew 'ripgrep'
@@ -26,6 +28,8 @@ brew 'htop'
 brew 'ssh-copy-id'
 brew 'trash'
 brew 'mobile-shell' # mosh
+brew 'rlwrap'
+brew 'sloccount'
 
 brew 'bash' # the bash shipped with OS X is horribly out of date
 brew 'bash-completion'
@@ -70,6 +74,7 @@ cask 'sequel-pro'
 
 # Quality of life OS X improvements
 cask 'spectacle'
+cask 'hyperswitch'
 # cask 'bettertouchtool'
 
 # Programming related applications
