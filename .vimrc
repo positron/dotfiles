@@ -139,6 +139,10 @@ Plug 'tpope/vim-rhubarb' " Github support (e.g. :Gbrowse for source and commits)
 " Mercurial wrapper inspired by fugitive
 "Plug 'ludovicchabant/vim-lawrencium'
 
+" Run :Obsess to start a vim session with automatic saving 'n stuff
+" Use vim -S Session.vim to restore the session
+Plug 'tpope/vim-obsession'
+
 Plug 'bling/vim-airline'
 set laststatus=2 " without this, vim-airline doesn't show until you create a split
 
