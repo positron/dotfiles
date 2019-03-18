@@ -5,14 +5,15 @@ let mapleader=" "
 
 " Profiling things to try when things slow down
 " - Comment out plug#begin to disable all plugins
-"   - binary search if that fixes it
-"   - or :profile start, :profile func *, :profile file *, <do stuff that is slow>, :profile pause, :qa!
+"   - or binary search installed plugins if that fixes it
+" - :profile start, :profile func *, :profile file *, <do stuff that is slow>, :profile pause, :qa!, read profile.log file
 " - Turn off syntax highlighting
 "   - :syntime on, then :syntime report if that fixes it
 "   - or mess with set re=1 setting to change regex engine
 " - Look for expensive autocommand groups (or duplicates)
 "   - :au CursorMoved
 " - Use vim --startuptime <files> to profile startup time
+" - if this is slow, try to debounce matchparens http://vim.wikia.com/wiki/Prevent_frequent_commands_from_slowing_things_down
 
 " Install vim-plug if it is not there
 " Note: To update vim-plug, run `:PlugUpgrade`
