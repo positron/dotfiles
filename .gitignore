@@ -1,3 +1,6 @@
+# My workflow
+message
+
 # IntelliJ
 .idea/
 .*.iml
@@ -7,6 +10,8 @@
 
 # vim backups
 .*.swp
+Session.vim
+Session-*.vim
 
 # OS Generated Files
 .DS_Store
@@ -16,3 +21,6 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Misc
+*~
