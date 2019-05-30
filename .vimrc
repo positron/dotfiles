@@ -107,7 +107,7 @@ let g:sexp_enable_insert_mode_mappings = 1
 " Manipulate surrounds. Super useful for non-lispy languages too
 Plug 'tpope/vim-surround'
 
-" Enables repeating actions added by other plugins (e.g. vim-surround) with .
+" Enables repeating actions added by other plugins (e.g. vim-surround) with the builtin . command
 Plug 'tpope/vim-repeat'
 
 " Underlines current word (easy to see where variables or :keywords are used further down the code)
@@ -145,6 +145,13 @@ Plug 'tpope/vim-rhubarb' " Github support (e.g. :Gbrowse for source and commits)
 " Run :Obsess to start a vim session with automatic saving 'n stuff
 " Use vim -S Session.vim to restore the session
 Plug 'tpope/vim-obsession'
+
+" Not using taboo since it was unpolished and broke some workflows
+"Plug 'gcmt/taboo.vim'
+" Required for Taboo to remember tab names when you save the current session
+"set sessionoptions+=tabpages,globals
+" A is the hotkey for renaming a tab (like my tmux config)
+"nmap <Leader>A :TabooRename 
 
 Plug 'bling/vim-airline'
 set laststatus=2 " without this, vim-airline doesn't show until you create a split
@@ -258,6 +265,10 @@ call plug#end()
 
 :silent! colorscheme solarized
 
+" Underline the matching parenthesis (default vim behavior is highlight)
+"highlight MatchParen cterm=NONE,underline,bold ctermbg=NONE ctermfg=NONE gui=NONE,underline,bold guibg=NONE guifg=NONE
+
+set re=1
 syntax on
 set ruler              " show the line number on the bar
 set bs=2               " make backspace work
@@ -347,8 +358,8 @@ inoremap kj <Esc>:w<CR>
 set timeoutlen=350 " the default 1 second pause is too much for jk
 
 " When editing clojurescript code we almost always have figwheel running, so control saving manually
-autocmd BufRead,BufNewFile *.cljs inoremap <buffer> jk <Esc>
-autocmd BufRead,BufNewFile *.cljs inoremap <buffer> kj <Esc>
+"autocmd BufRead,BufNewFile *.cljs inoremap <buffer> jk <Esc>
+"autocmd BufRead,BufNewFile *.cljs inoremap <buffer> kj <Esc>
 
 nnoremap <Leader>wa :wa<CR>
 nnoremap <Leader>w :w<CR>
