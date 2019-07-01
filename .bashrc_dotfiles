@@ -83,14 +83,17 @@ alias setJdk8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 alias setJdk9='export JAVA_HOME=$(/usr/libexec/java_home -v9)'
 alias setJdk10='export JAVA_HOME=$(/usr/libexec/java_home -v10)'
 
-shopt -s histappend                         # Set history file mode to append
+shopt -s histappend # Set history file mode to append
 # -a writes current/new lines to history file
 # -c clears the history list (bash in memory concept)
 # -r reads history file into the history list
 PROMPT_COMMAND="history -a;history -c;history -r;$PROMPT_COMMAND"
 export HISTSIZE=100000         # big big history
 export HISTFILESIZE=100000
-export HISTCONTROL=ignorespace # Don't save commands that start with space (for passwords and stuff)
+export HISTCONTROL=ignoreboth # Don't save commands that start with space (for passwords and stuff), and don't save dups
+export HISTIGNORE='ls:bg:fg:history'
+export HISTTIMEFORMAT='%F %T ' # full time in history file
+shopt -s cmdhist # force multi-line commands to one line in history
 
 # Harry potter aliases
 alias accio=wget
