@@ -58,7 +58,7 @@ brew 'gradle'
 brew 'maven'
 brew 'leiningen'
 
-cask 'intellij-idea'
+#cask 'intellij-idea'
 cask 'yourkit-java-profiler'
 
 # Javascript
@@ -70,21 +70,22 @@ brew 'phantomjs'
 brew 'datomic'
 brew 'postgresql'
 #brew 'mysql'
-cask 'sequel-pro'
+#cask 'sequel-pro'
 
 # Quality of life OS X improvements
 cask 'spectacle'
 cask 'hyperswitch'
+cask 'karabiner-elements'
 # cask 'bettertouchtool'
 
 # Programming related applications
 cask 'sourcetree'
 cask 'github'
-cask 'p4v' # contains p4merge
+cask 'p4v' # I just want p4merge
 cask 'wireshark'
 cask 'postman'
 
-# Browser stuff
+# Browsers
 cask 'firefox'
 cask 'google-chrome'
 
