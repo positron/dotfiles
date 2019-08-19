@@ -2,6 +2,12 @@ set nocompatible
 filetype off   " required by vundle
 
 let mapleader=" "
+let maplocalleader=" "
+
+" TODO... indentation is relevant here :/ this doesn't work
+"augroup vimrc
+" clear all autocommands since they will be added again (if .vimrc is sourced a second time)
+"autocmd!
 
 " Profiling things to try when things slow down
 " - Comment out plug#begin to disable all plugins
@@ -28,9 +34,15 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" TODO try:
+"Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+" https://stackoverflow.com/a/13855458/683415 make window ctrl-w commands map
+" try joker. ale instead of syntastic?
+
 " Install fzf globally. Do this through vim since the fzf repo also has a basic vim wrapper
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim' " Add better bindings than the default fzf vim plugin
+" TODO: try out https://github.com/pbogut/fzf-mru.vim for MRU
 
 " Enable per-command history.
 " CTRL-N and CTRL-P will be automatically bound to next-history and previous-history instead of down and up.
@@ -53,7 +65,7 @@ Plug 'tpope/vim-markdown'
 " this is shipped with modern version of vim, but use latest version anyway
 Plug 'guns/vim-clojure-static'
 
-Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-fireplace' " Note: stay on {'branch': 'v1.1'} sez Kevin
 " require :reload current namespace
 nmap <leader>rr  :w<CR>:Require<CR>
 " require :reload-all current namespace
@@ -172,6 +184,8 @@ let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
 
+" let g:airline_extensions = ['branch', 'tabline']
+
 " Disable the whitespace extension to speed things up
 let g:airline#extensions#whitespace#enabled = 0
 
@@ -180,8 +194,7 @@ let g:airline#extensions#tabline#enabled = 1
 " configure how numbers are calculated in tab mode to tab number
 let g:airline#extensions#tabline#tab_nr_type = 1
 
-" Just show the filename (no path) in the tab
-let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#keymap_ignored_filetypes = ['vimfiler', 'nerdtree']
 
 " trying to get rid of the filename in the top right...
 "let g:airline#extensions#tabline#show_tab_type = 0
@@ -192,10 +205,17 @@ let g:airline#extensions#tabline#buffer_nr_show = 0
 " The `unique_tail` algorithm will display the tail of the filename, unless
 " there is another file of the same name, in which it will display it along
 " with the containing parent directory.
-" let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
+" TODO: try these to get unique tail to work?
+let g:airline#extensions#tabline#fnamemod = ':t:.'
+"let g:airline#extensions#tabline#fnamecollapse = 0
+"let g:airline#extensions#tabline#fnametruncate = 1
 
 " enable/disable showing a summary of changed hunks under source control
-let g:airline#extensions#hunks#enabled = 1
+let g:airline#extensions#hunks#enabled = 0 " I think this is super slow?
+let g:airline#extensions#branch#enabled = 0 "slow
+let g:airline_highlighting_cache = 1
 
 " Gutter for displaying what lines changed since last commit
 Plug 'airblade/vim-gitgutter'
@@ -229,6 +249,10 @@ let project_wiki.ext = '.md'
 " <Plug>VimwikiIndex so it won't try to map <Leader>ww
 nmap <silent> <Leader>2dummy <Plug>VimwikiIndex
 nmap <silent> <Leader>ww <Plug>VimwikiTabIndex
+nmap <silent> <Leader>wt <Plug>VimwikiIndex
+
+" TODO: notational velocity like searching of notes
+" nmap <Leader>wp :Files ~/git/vimwiki/<CR>
 
 let garden_wiki = {}
 let garden_wiki.path = '~/vimwiki/garden/'
