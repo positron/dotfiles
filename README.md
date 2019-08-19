@@ -2,7 +2,7 @@
 These are the config files to set up a system to maximize my productivity.
 
 ## Installation
-Run `./setup` in Unix/Cygwin shells and `setup.bat` in Windows to install all the dotfiles relevant to that platform.
+Run `./setup` in OS X/*nix/Cygwin shells and `setup.bat` in Windows to install all the dotfiles relevant to that platform.
 
 ## Updating vim plugins
 Plugins are managed by the [Vundle plugin][vundle].
