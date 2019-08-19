@@ -2,6 +2,8 @@
 These are the config files to set up a system to maximize my productivity.
 
 ## Installation
+Run ./config-macos.sh to configure OS X.
+
 Run `./setup` in OS X/*nix/Cygwin shells and `setup.bat` in Windows to install all the dotfiles relevant to that platform.
 
 ## Updating vim plugins
