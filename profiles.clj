@@ -1,5 +1,6 @@
 {:user 
- {:aliases {"slamhound" ["run" "-m" "slam.hound"]}
+ {:aliases {"slamhound" ["run" "-m" "slam.hound"]
+            "rebl" ["run" "-m" "cognitect.rebl"]}
   :plugins [; lets you try dependencies without a project.clj: `lein try clj-time "0.5.1"`
             ; (version is optional, defaults to "RELEASE")
             [lein-try "RELEASE"]
@@ -14,6 +15,8 @@
                  [slamhound "RELEASE"]
                  [alembic "RELEASE"]
                  ]
+  ;:resource-paths ["resources/REBL-0.9.157.jar"] ; appears only absolute paths work
+  :resource-paths ["/Users/pjagielski/Downloads/REBL-0.9.157/REBL-0.9.157.jar"]
   :shorthand {. {pp clojure.pprint/pprint
                  ; adds dependency to classpath: (./add-dep '[foo.bar "version"])
                  add-dep alembic.still/distill
