@@ -1,7 +1,7 @@
 # Use `brew bundle` to install the packages listed below
 
 # Essential command line tools
-brew 'vim', args: ['--with-override-system-vi']
+brew 'vim'
 brew 'neovim'
 cask 'macvim'
 brew 'tmux'
