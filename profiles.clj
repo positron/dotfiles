@@ -24,4 +24,7 @@
                  load-project alembic.still/load-project
                  ; calls leiningen: (./lein deps :tree)
                  lein alembic.still/lein
-                 }}}}
+                 }}}
+ :auth {:repository-auth {#"my\.datomic\.com" {:username "philipjagielski@gmail.com"
+                                               :password "SECRET"}}}
+ }
