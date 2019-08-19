@@ -50,7 +50,6 @@ cask 'puppetlabs/puppet/puppet-agent'
 # JVM languages
 cask 'java'
 tap 'caskroom/versions'
-cask 'java8'
 
 brew 'gradle'
 brew 'maven'
@@ -88,7 +87,6 @@ cask 'firefox'
 cask 'google-chrome'
 
 # Misc
-cask 'flux'
 cask 'vlc'
 cask 'omnigraffle'
 cask 'flycut'
