@@ -1,10 +1,8 @@
 #!/bin/bash
 
-# Install vundle plugin for vimrc
-if [ ! -d ~/.vim/bundle/vundle ]; then
-   mkdir -p ~/.vim/bundle/vundle
-   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-fi
+# Install vim-plug (plugin manager for vim)
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Install git-bash-prompt
 if [ ! -d ~/.bash-git-prompt ]; then
@@ -29,7 +27,7 @@ ln -sf `pwd`/.ideavimrc ~
 mkdir -p ~/.vim/backupdir
 mkdir -p ~/.vim/undodir
 mkdir -p ~/.vim/swpdir
-vim +BundleInstall! +qall
+vim +PlugInstall! +qall
 
 # Configure mercurial
 #ln -sf `pwd`/mercurial/.hgrc ~
