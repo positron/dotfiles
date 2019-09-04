@@ -4,27 +4,28 @@ These are the config files to set up a system to maximize my productivity.
 ## Installation
 Run ./config-macos.sh to configure OS X.
 
-Run `./setup` in OS X/*nix/Cygwin shells and `setup.bat` in Windows to install all the dotfiles relevant to that platform.
+Run `./setup` in OS X/*nix/WSL shells to install utilities and link all dotfiles.
 
 ## Updating vim plugins
-Plugins are managed by the [Vundle plugin][vundle].
+Plugins are managed by the [vim-plug plugin][vim-plug].
 
 To install and update all plugins:
 
-    :PluginInstall!
+    :PlugInstall
 
 To delete plugins after deleting them from `.vimrc`:
 
-    :PluginClean!
+    :PlugClean!
+    
+To upgrade plugins, run:
 
-[vundle]: https://github.com/gmarik/vundle
+    :PlugSnapshot "generate script for restoring the current snapshot of the plugins
+    :PlugUpdate
+    :PlugUpgrade  "upgrades vim-plug itself
 
-## Windows specific
-Download vim [from here][winvim]. This build is 64bit with a lot of goodies compiled in.
-
-[winvim]: http://solar-blogg.blogspot.ca/p/vim-build.html
+[vim-plug]: https://github.com/junegunn/vim-plug
 
 ## Features
 Lots of stuff I have accumulated over the years. :-)
 
-Most config files source a .local version of that file if it exists so you can have configuration specific to one system.
+Most config files source a .local version of that file if it exists (e.g. for secrets or work specific aliases).
