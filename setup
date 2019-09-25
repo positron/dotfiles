@@ -29,6 +29,8 @@ mkdir -p ~/.vim/undodir
 mkdir -p ~/.vim/swpdir
 vim +PlugInstall! +qall
 
+ln -sf `pwd`/.joker ~
+
 # Configure mercurial
 #ln -sf `pwd`/mercurial/.hgrc ~
 #ln -sf `pwd`/mercurial/hgignore.ini ~/.hgignore

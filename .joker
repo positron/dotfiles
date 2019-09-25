@@ -1,0 +1,15 @@
+{:rules {:if-without-else true
+         :unused-fn-parameters true}
+ :ignored-unused-namespaces [; these are nice to have available for debugging without having to add manually
+                             taoensso.timbre
+                             clj.pprint cljs.pprint
+                             om.next ; to get app root in comment blocks
+                             compassus.core ; to get reconciler in comment blocks
+                             om.next.server ; supposedly needed for tempid stuff
+                             ]
+ :known-macros [garden.def/defstyles garden.def/defcssfn garden.def/defkeyframes garden.def/defstylesheet garden.def/defrule
+                compojure.core/defroutes compojure.core/GET compojure.core/POST compojure.core/PUT compojure.core/PATCH
+                ]
+ }
+
+; vi: ft=clojure

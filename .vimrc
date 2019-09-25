@@ -37,7 +37,6 @@ call plug#begin('~/.vim/plugged')
 " TODO try:
 "Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " https://stackoverflow.com/a/13855458/683415 make window ctrl-w commands map
-" try joker. ale instead of syntastic?
 
 " Install fzf globally. Do this through vim since the fzf repo also has a basic vim wrapper
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
@@ -184,6 +183,8 @@ let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
 
+let g:airline#extensions#ale#enabled = 1 " for linting
+
 " let g:airline_extensions = ['branch', 'tabline']
 
 " Disable the whitespace extension to speed things up
@@ -223,6 +224,16 @@ Plug 'airblade/vim-gitgutter'
 nmap <leader>gj <Plug>GitGutterNextHunk
 nmap <leader>gk <Plug>GitGutterPrevHunk
 " gitgutter maps <leader>hs and <leader>hu to stage and undo hunks
+
+Plug 'dense-analysis/ale' " syntastic alternative
+Plug 'aclaimant/syntastic-joker' " Needs ale and https://github.com/candid82/joker
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" Toggle the two things that display signs in the gutter
+nmap <silent> <Leader>gg :GitGutterBufferToggle<CR>
+nmap <silent> <Leader>a :ALEToggleBuffer<CR>
 
 " A global vim setting that GitGutter uses
 set updatetime=200 " ms
@@ -413,10 +424,10 @@ vnoremap > >gv
 " search for a file named "tags" from the current directory down to root
 set tags=./tags;/
 " L and K go up and down the tag stack, H and L go left/right.
-noremap <C-K> <C-]>
-noremap <C-J> <C-T>
-noremap <C-L> :tn<CR>
-noremap <C-H> :tp<CR>
+"noremap <C-K> <C-]>
+"noremap <C-J> <C-T>
+"noremap <C-L> :tn<CR>
+"noremap <C-H> :tp<CR>
 " Control-T opens the tag in a new tab
 noremap <C-T> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " Control-Y opens the tag in a vertical split

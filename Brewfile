@@ -54,6 +54,7 @@ tap 'caskroom/versions'
 brew 'gradle'
 brew 'maven'
 brew 'leiningen'
+brew 'candid82/brew/joker'
 
 #cask 'intellij-idea'
 cask 'yourkit-java-profiler'
