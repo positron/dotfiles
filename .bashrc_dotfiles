@@ -75,6 +75,12 @@ if [ command -v brew 2>&- && -f $(brew --prefix)/etc/bash_completion  ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
+if grep -q Microsoft /proc/version; then
+  # Fix everything being highlighted in light green (due to the group
+  # write bit being set or something like that)
+  export LS_COLORS=$(echo $LS_COLORS | sed "s/ow=34;42/ow=01;34/g")
+fi
+
 # Only works on OS X
 alias setJdk6='export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)'
 alias setJdk7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'

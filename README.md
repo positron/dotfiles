@@ -29,3 +29,8 @@ To upgrade plugins, run:
 Lots of stuff I have accumulated over the years. :-)
 
 Most config files source a .local version of that file if it exists (e.g. for secrets or work specific aliases).
+
+## WSL
+The best setup I've found is to install ConEmu and use that.
+
+- [Follow setup instructions to get a WSL shell](https://conemu.github.io/en/BashOnWindows.html)
