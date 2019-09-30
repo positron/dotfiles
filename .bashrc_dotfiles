@@ -75,7 +75,7 @@ if [ $(command -v brew 2>&-) ] && [ -f $(brew --prefix)/etc/bash_completion ]; t
     . $(brew --prefix)/etc/bash_completion
 fi
 
-if grep -q Microsoft /proc/version; then
+if [ -f /proc/version ] && [ grep -q Microsoft /proc/version ]; then
   # Fix everything being highlighted in light green (due to the group
   # write bit being set or something like that)
   export LS_COLORS=$(echo $LS_COLORS | sed "s/ow=34;42/ow=01;34/g")
