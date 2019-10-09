@@ -50,8 +50,9 @@ cask 'puppetlabs/puppet/puppet-agent'
 
 # JVM languages
 cask 'java'
-tap 'caskroom/versions'
+cask 'homebrew/cask-versions/adoptopenjdk8'
 
+# brew 'jabba' # this is totally broken in brew and has been for a year.. :/
 brew 'gradle'
 brew 'maven'
 brew 'leiningen'
