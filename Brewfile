@@ -30,6 +30,7 @@ brew 'trash'
 brew 'mobile-shell' # mosh
 brew 'rlwrap'
 brew 'sloccount'
+brew 'mtr'
 
 brew 'bash' # the bash shipped with OS X is horribly out of date
 brew 'bash-completion'
