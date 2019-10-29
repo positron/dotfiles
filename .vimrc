@@ -324,8 +324,8 @@ set fo-=o              " automatically insert current comment leader when you hi
 set switchbuf=usetab,newtab " Switch to existing tab if the buffer is open
 set history=9999       " the default is 20... lol
 
-set tabstop=3          " I prefer 3 spaces for tab
-set shiftwidth=3
+set tabstop=2          " I prefer 2 spaces for tab
+set shiftwidth=2
 set shiftround         " Round indent to nearest multiple of shiftwidth
 set smarttab
 set expandtab
@@ -351,7 +351,7 @@ filetype indent on
 filetype plugin indent on
 
 "don't use spaces for makefiles...
-autocmd FileType make setlocal noexpandtab tabstop=3 shiftwidth=3
+autocmd FileType make setlocal noexpandtab tabstop=2 shiftwidth=2
 
 " copy paste mode:
 " the `paste` option makes it so pasting code won't be messed up by autoindent
