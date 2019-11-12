@@ -221,8 +221,8 @@ let g:airline_highlighting_cache = 1
 " Gutter for displaying what lines changed since last commit
 Plug 'airblade/vim-gitgutter'
 
-nmap <leader>gj <Plug>GitGutterNextHunk
-nmap <leader>gk <Plug>GitGutterPrevHunk
+nmap <leader>gj <Plug>(GitGutterNextHunk)
+nmap <leader>gk <Plug>(GitGutterPrevHunk)
 " gitgutter maps <leader>hs and <leader>hu to stage and undo hunks
 
 Plug 'dense-analysis/ale' " syntastic alternative
