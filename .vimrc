@@ -38,6 +38,8 @@ call plug#begin('~/.vim/plugged')
 "Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " https://stackoverflow.com/a/13855458/683415 make window ctrl-w commands map
 
+Plug 'kana/vim-arpeggio' " keymap chords of simultaneously pressed keys
+
 " Install fzf globally. Do this through vim since the fzf repo also has a basic vim wrapper
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim' " Add better bindings than the default fzf vim plugin
@@ -298,6 +300,10 @@ set background=dark
 " Plugins become visible to Vim after this call
 call plug#end()
 
+" map chords of simultaneously pressed keys
+call arpeggio#load()
+Arpeggio inoremap jk <Esc>:w<CR>
+
 :silent! colorscheme solarized
 
 " Underline the matching parenthesis (default vim behavior is highlight)
@@ -388,13 +394,7 @@ autocmd FileType sh :iabbrev <buffer> shebang #!/usr/bin/env bash<CR><CR># unoff
 autocmd FileType sh :iabbrev <buffer> usestrict # unofficial bash "strict mode"<CR>set -euo pipefail<CR>IFS=$'\n\t'
 
 " Avoid using the escape key because it's so far away! just mash j and k
-inoremap jk <Esc>:w<CR>
-inoremap kj <Esc>:w<CR>
-set timeoutlen=350 " the default 1 second pause is too much for jk
-
-" When editing clojurescript code we almost always have figwheel running, so control saving manually
-"autocmd BufRead,BufNewFile *.cljs inoremap <buffer> jk <Esc>
-"autocmd BufRead,BufNewFile *.cljs inoremap <buffer> kj <Esc>
+set timeoutlen=450 " the default 1 second pause is too much
 
 nnoremap <Leader>wa :wa<CR>
 nnoremap <Leader>w :w<CR>
