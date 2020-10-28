@@ -35,6 +35,8 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " TODO try:
+" https://github.com/liuchengxu/vim-clap (neovim)
+" https://github.com/ryanoasis/vim-devicons
 "Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " https://stackoverflow.com/a/13855458/683415 make window ctrl-w commands map
 
