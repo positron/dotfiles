@@ -363,6 +363,29 @@ let g:vimwiki_list = [project_wiki, garden_wiki]
 "Plug 'jnwhiteh/vim-golang'
 " Run gofmt whenever I save go files
 "autocmd FileType go autocmd BufWritePre <buffer> Fmt
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+" update imports and fmt (can be slow on large projects, use :GoImports in that case
+let g:go_fmt_command = "goimports"
+" don't show parse errors on fmt
+let g:go_fmt_fail_silently = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+"let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+" TODO set up mapping for :GoAlternate to switch between src and test file
+" autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+" autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+" autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+" autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')))))
+
+"autocmd FileType go nmap <Leader>i <Plug>(go-info)
+" show fn info every time your cursor is over a valid identifier
+let g:go_auto_type_info = 1
+" TODO use :GoReferrers, Callees, Implements, and :<range>GoPlay
 
 "Plug 'lepture/vim-jinja'
 
