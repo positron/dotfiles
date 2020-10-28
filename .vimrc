@@ -230,12 +230,25 @@ let g:airline#extensions#hunks#enabled = 0 " I think this is super slow?
 let g:airline#extensions#branch#enabled = 0 "slow
 let g:airline_highlighting_cache = 1
 
-" Gutter for displaying what lines changed since last commit
-Plug 'airblade/vim-gitgutter'
+set signcolumn=yes
 
-nmap <leader>gj <Plug>(GitGutterNextHunk)
-nmap <leader>gk <Plug>(GitGutterPrevHunk)
-" gitgutter maps <leader>hs and <leader>hu to stage and undo hunks
+"nmap <leader>gj <Plug>(GitGutterNextHunk)
+"nmap <leader>gk <Plug>(GitGutterPrevHunk)
+nmap <leader>gj <Plug>(coc-git-nextchunk)
+nmap <leader>gk <Plug>(coc-git-prevchunk)
+nmap <leader>gs <Plug>(coc-git-chunkinfo)
+
+nmap <leader>hs :CocCommand git.chunkStage<CR>
+nmap <leader>hu :CocCommand git.chunkUndo<CR>
+nmap <leader>go :CocCommand git.browserOpen<CR>
+
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)))))
+
+"TODO: hotkeys for https://github.com/neoclide/coc-git#commands
 
 Plug 'dense-analysis/ale' " syntastic alternative
 Plug 'aclaimant/syntastic-joker' " Needs ale and https://github.com/candid82/joker
@@ -254,6 +267,65 @@ set updatetime=200 " ms
 let g:gitgutter_max_signs = 1000
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
+
+" LSP/Intellisense stuff
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+nmap <leader>rn <Plug>(coc-rename)
+
+" TODO :help coc-status for integrations with airline
+
+""""""""""" DEFAULT COC CONFIG FROM COC README """""""""""
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+""""""""""" END DEFAULT COC CONFIG FROM COC README """""""""""
 
 Plug 'fanchangyong/a.vim' " Switch between source and header files easily (e.g. .cpp and .h)
 " <Space>is is really not a good insert mode mapping.
@@ -321,9 +393,13 @@ Arpeggio inoremap jk <Esc>:w<CR>
 
 set re=1
 syntax on
+"set hidden             " if you open a file over another one, don't display the unsaved changes message. coc recommends setting this
+set cmdheight=2        " (coc) more space for displaying messages
+set shortmess+=c       " (coc) don't pass messages to |ins-completion-menu|.
 set ruler              " show the line number on the bar
 set bs=2               " make backspace work
 set autoread           " autoreload the file after !shell commands
+set autowrite          " auto write the contents of the file if you call `:make` (vim-go plugin uses this too)
 set magic              " mostly same regex rules as grep
 set scrolloff=3        " leave 3 lines between the cursor and the top/bot of screen
 set showcmd            " show a command in progress in the bar (eg a long command involving <leader>)
