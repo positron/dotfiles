@@ -407,7 +407,19 @@ call plug#end()
 
 " map chords of simultaneously pressed keys
 call arpeggio#load()
-Arpeggio inoremap jk <Esc>:w<CR>
+"Arpeggio inoremap jk <Esc>:w<CR> " this turned out to be too finicky. You have to hit the keys *exactly* at the same time with my settings
+inoremap kj <Esc>:w<CR>
+inoremap jk <Esc>:w<CR>
+
+" window movement
+Arpeggio nnoremap wj <C-w>j
+Arpeggio nnoremap wk <C-w>k
+Arpeggio nnoremap wl <C-w>l
+Arpeggio nnoremap wh <C-w>h
+Arpeggio nnoremap WJ <C-w>J
+Arpeggio nnoremap WK <C-w>K
+Arpeggio nnoremap WL <C-w>L
+Arpeggio nnoremap WH <C-w>H
 
 :silent! colorscheme solarized
 
