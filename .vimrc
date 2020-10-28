@@ -68,6 +68,14 @@ Plug 'tpope/vim-markdown'
 " this is shipped with modern version of vim, but use latest version anyway
 Plug 'guns/vim-clojure-static'
 
+" om/next lispwords (defui is already matched by the default '^def' entry in clojure_fuzzy_indent_patterns)
+setl lispwords+=query
+setl lispwords+=render
+setl lispwords+=initLocalState,componentDidMount,componentWillMount,componentWillUnmount,componentWillUpdate,componentWillReceiveProps
+
+setl lispwords+=authorized-action
+" TODO: manifold stuff? let-flow, any other with-thing from other libs? or is that included in default fuzzy stuff
+
 Plug 'tpope/vim-fireplace' " Note: stay on {'branch': 'v1.1'} sez Kevin
 " require :reload current namespace
 nmap <leader>rr  :w<CR>:Require<CR>
