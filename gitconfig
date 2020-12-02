@@ -38,3 +38,5 @@
 	autosetupmerge = true     # automatically let the the local branch track the remote branch
 [pull]
 	ff = only                 # don't pull unless the branch is up to date (aka don't do a merge commit)
+[init]
+  defaultBranch = main
