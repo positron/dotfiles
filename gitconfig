@@ -1,6 +1,7 @@
 [core]
 	editor = vim
 	precomposeunicode = true
+	pager = delta
 [alias]
 	co = checkout
 	cob = checkout -b
@@ -32,6 +33,10 @@
 [merge]
 	tool = vimdiff
 	stat = true               # show diffstat at end of merge
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  features = side-by-side line-numbers decorations
 [push]
 	default = simple          # push to matching branch on origin
 [advice]
