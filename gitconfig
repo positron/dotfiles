@@ -20,6 +20,11 @@
 	statme = !sh -c \"git diff --stat --no-merges `git oldest-ancestor`..\"
 	logme = !sh -c \"git log --no-merges `git oldest-ancestor`..\"
 	oldest-ancestor = !bash -c 'diff -u <(git rev-list --first-parent \"${1:-origin/master}\") <(git rev-list --first-parent \"${2:-HEAD}\") | sed -ne \"s/^ //p\" | head -1' -
+
+	# `git wa` to check out `main` to `~/tmp/worktrees/<repo name>`, `git wa dev` to check out the `dev` branch instead.
+	wa = "! dir=${2:-~/tmp/worktrees/\"$(basename \"$(git rev-parse --show-toplevel)\")\"}; git worktree add \"$dir\" \"${1:-main}\" && cd \"$dir\" #"
+	# `git wr` to clean up a worktree created with `git wa`.
+	wr = "! git worktree remove ${1:-~/tmp/worktrees/\"$(basename \"$(git rev-parse --show-toplevel)\")\"} #"
 [user]
 	name = Philip Jagielski
 [color]
