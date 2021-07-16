@@ -36,7 +36,7 @@ brew 'delta'
 brew 'bash' # the bash shipped with OS X is horribly out of date
 brew 'bash-completion'
 
-cask 'alacritty'
+cask 'iterm2'
 
 # Docker/VMs
 cask 'virtualbox'
