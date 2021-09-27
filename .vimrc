@@ -459,6 +459,10 @@ set expandtab
 set autoindent
 set smartindent
 
+" Default new splits to bottom and right
+set splitbelow
+set splitright
+
 " Make temp files go somewhere out of the way by prepending better directories
 set undolevels=200 "maximum number of changes you can undo (stored in memory)
 
