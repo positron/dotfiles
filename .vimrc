@@ -181,9 +181,6 @@ au FileType clojure let b:delimitMate_quotes = "\"`"
 " inner parens.
 Plug 'tommcdo/vim-lion'
 
-" Receive tmux focus events to update fugitive, gitgutter, etc
-Plug 'tmux-plugins/vim-tmux-focus-events'
-
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb' " Github support (e.g. :Gbrowse for source and commits). See README for token generation
