@@ -1,7 +1,4 @@
-# I have decided not to use alacritty since it won't let you send option as meta on mac.
-# Still committing it in case I come back to it in the future.
-# 
-# Also see this slightly salty issue on kitty, lol
+# A similar terminal is kitty. See this slightly salty issue on kitty, lol
 # https://github.com/kovidgoyal/kitty/issues/2701
 
 
@@ -23,7 +20,7 @@ window:
 
 # TODO: colors?
 
-#alt_send_esc: true
+alt_send_esc: true
 
 # These are uneeded? I think the alt_send_esc option does this now.
 key_bindings:

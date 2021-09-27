@@ -119,10 +119,36 @@ let g:rainbow_conf = {
 " https://github.com/markwoodhall/vim-figwheel
 " https://github.com/gfredericks/debug-repl
 
-" NOTE! To get meta mappings to work you need to make sure your keyboard maps Alt to Meta
-" On iTerm2 you can do this in Preferences -> Profiles -> Keys
 Plug 'snoe/vim-sexp' "This is a fork of guns/vim-sexp with the addition of not moving the cursor when slurping and barfing
 let g:sexp_enable_insert_mode_mappings = 1
+
+" NOTE! To get the default meta mappings to work you need to make sure your keyboard maps Alt to Meta.
+" On iTerm2 you can do this in Preferences -> Profiles -> Keys
+"
+" Copy M-* mappings to be the special vim alt escape sequence thingy since I can't get meta to work on
+" any Mac OS X terminal besides iTerm2 and the built in Terminal.app.
+let g:sexp_mappings = {
+    \ 'sexp_move_to_prev_element_head': 'b',
+    \ 'sexp_move_to_next_element_head': 'w',
+    \ 'sexp_move_to_prev_element_tail': 'ge',
+    \ 'sexp_move_to_next_element_tail': 'e',
+    \ 'sexp_flow_to_prev_close':        '[',
+    \ 'sexp_flow_to_next_open':         ']',
+    \ 'sexp_flow_to_prev_open':         '{',
+    \ 'sexp_flow_to_next_close':        '}',
+    \ 'sexp_flow_to_prev_leaf_head':    'B',
+    \ 'sexp_flow_to_next_leaf_head':    'W',
+    \ 'sexp_flow_to_prev_leaf_tail':    'G',
+    \ 'sexp_flow_to_next_leaf_tail':    'E',
+    \ 'sexp_swap_list_backward':        'k',
+    \ 'sexp_swap_list_forward':         'j',
+    \ 'sexp_swap_element_backward':     'h',
+    \ 'sexp_swap_element_forward':      'l',
+    \ 'sexp_emit_head_element':         'J',
+    \ 'sexp_emit_tail_element':         'K',
+    \ 'sexp_capture_prev_element':      'H',
+    \ 'sexp_capture_next_element':      'L',
+    \ }
 
 " This plugin looks cool, but it breaks some vim-sexp hotkeys for some reason
 "Plug 'bhurlow/vim-parinfer'

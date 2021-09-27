@@ -9,8 +9,10 @@ if [ ! -d ~/.bash-git-prompt ]; then
    git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt
 fi
 
-# Configure tmux
+# Link dotfiles (note: didn't bother to make it work if you're not running from root of repo)
 ln -sf `pwd`/.tmux.conf ~
+ln -sf `pwd`/.tmux.conf ~
+ln -sf `pwd`/.joker ~
 
 # Install tmux plugin manager
 if [ ! -d ~/.tmux/plugins/tpm ]; then
@@ -28,8 +30,6 @@ mkdir -p ~/.vim/backupdir
 mkdir -p ~/.vim/undodir
 mkdir -p ~/.vim/swpdir
 vim +PlugInstall! +qall
-
-ln -sf `pwd`/.joker ~
 
 # Configure mercurial
 #ln -sf `pwd`/mercurial/.hgrc ~
