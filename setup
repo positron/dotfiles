@@ -43,7 +43,7 @@ fi
 
 # Configure git
 git config --global include.path `pwd`/gitconfig
-git config --global init.templatedir `pwd`/git_template
+git config --global core.excludesfile `pwd`/.gitignore
 if [ -z `git config --global user.email` ]; then
    echo "REMINDER: Tell git your email like this: git config --global user.email \"philipjagielski@gmail.com\""
 fi
