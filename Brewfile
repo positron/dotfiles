@@ -6,16 +6,16 @@ brew 'neovim'
 cask 'macvim'
 brew 'tmux'
 brew 'git'
-brew 'gist'
-brew 'hub'
-brew 'fasd'
+brew 'git-lfs'
+brew 'gh' # official github cli
+brew 'git-delta' # diff alternative, used in my git config
 brew 'fd'
-brew 'ripgrep'
 brew 'ag'
 brew 'fzf'
-brew 'bench'
 brew 'jq'
+brew 'yq' # jq for yaml
 brew 'coreutils' # gnu utils, prefixed by 'g'. e.g. 'gsed'
+brew 'telnet'
 brew 'wget'
 brew 'curl'
 brew 'watch'
@@ -31,7 +31,8 @@ brew 'mobile-shell' # mosh
 brew 'rlwrap'
 brew 'sloccount'
 brew 'mtr'
-brew 'delta'
+brew 'exa' # ls replacement
+brew 'bat' # cat replacement
 
 brew 'bash' # the bash shipped with OS X is horribly out of date
 brew 'bash-completion'
@@ -39,19 +40,10 @@ brew 'bash-completion'
 cask 'iterm2'
 
 # Docker/VMs
-cask 'virtualbox'
-cask 'vagrant'
 brew 'docker'
 brew 'docker-compose'
 
-# DevOps/Automation
-cask 'puppetlabs/puppet/pdk'
-cask 'puppetlabs/puppet/puppet-agent'
-#brew 'ansible'
-
 # JVM languages
-cask 'java'
-cask 'homebrew/cask-versions/adoptopenjdk8'
 
 # brew 'jabba' # this is totally broken in brew and has been for a year.. :/
 brew 'gradle'
@@ -60,12 +52,12 @@ brew 'leiningen'
 brew 'candid82/brew/joker'
 
 #cask 'intellij-idea'
-cask 'yourkit-java-profiler'
+#cask 'yourkit-java-profiler'
 
 # Javascript
 brew 'nvm'
 brew 'node'
-brew 'phantomjs'
+#brew 'phantomjs'
 
 # Databases
 brew 'datomic'
@@ -74,16 +66,15 @@ brew 'postgresql'
 #cask 'sequel-pro'
 
 # Quality of life OS X improvements
-cask 'spectacle'
-cask 'hyperswitch'
-cask 'karabiner-elements'
-# cask 'bettertouchtool'
+cask 'rectangle'
+#cask 'hyperswitch'
+#cask 'karabiner-elements'
+#cask 'bettertouchtool'
 
 # Programming related applications
 cask 'sourcetree'
-cask 'github'
-cask 'p4v' # I just want p4merge
-cask 'wireshark'
+cask 'p4v' # I just want p4merge super occasionally
+#cask 'wireshark'
 cask 'postman'
 
 # Browsers
@@ -92,15 +83,6 @@ cask 'google-chrome'
 
 # Misc
 cask 'vlc'
-cask 'omnigraffle'
-cask 'flycut'
-cask 'gnucash'
-
-# Quick Look plugins for Finder
-cask 'qlcolorcode' # syntax highlighting
-cask 'qlstephen'   # plaintext files with no or unknown extension 
-cask 'qlmarkdown'
-cask 'quicklook-json'
-cask 'quicklook-csv'
-cask 'qlimagesize' # show image size and resolution
-cask 'webpquicklook' # webp support
+#cask 'omnigraffle'
+#cask 'flycut'
+cask 'homebrew/cask-drivers/zsa-wally' # Keyboard flashing for my ergodox
