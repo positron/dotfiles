@@ -5,12 +5,14 @@
 [alias]
 	co = checkout
 	cob = checkout -b
+  pushd = push -u origin HEAD
   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
 	ec = config --global -e
 	wip = commit -am "WIP"
 	undo = reset HEAD~1 --mixed
 	amend = commit -a --amend
 	fixup = commit --amend -C HEAD
+  fix = commit --fixup   # git fix SHA means git rebase --autosquash will combine it with SHA
 	serve = instaweb --httpd=webrick         # webbrick just requires ruby
 	stop = instaweb --httpd=webrick --stop
 	# enable others to push to you
@@ -37,19 +39,28 @@
   diffFilter = delta --color-only
 [delta]
   features = side-by-side line-numbers decorations
+  navigate = true
 [push]
 	default = simple          # push to matching branch on origin
+# TODO TODO TODO TODO: Work config for work repos.
+[includeIf "gitdir:~/wrk/**"]
+  path = ~/.config/git/wrk-config
 [advice]
 	statusHints = false       # disable "how to stage/unstage/add" hints
 [diff]
 	wsErrorHighlight = all    # diff and show show whitespace errors.
 	renames = copies          # `git diff` will do basic rename and copy detection
 	algorithm = histogram
+  colorMoved = default
 [branch]
 	autosetupmerge = true     # automatically let the the local branch track the remote branch
 [pull]
 	ff = only                 # don't pull unless the branch is up to date (aka don't do a merge commit)
+[rebase]
+	autoStash = true
 [init]
   defaultBranch = main
 [rerere]
   enabled = true            # Remember how I resolved the same merge conflict last time.
+[difftool "diffpdf"]
+  cmd = diff-pdf --view \"$LOCAL\" \"$REMOTE\"

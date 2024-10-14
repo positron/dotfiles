@@ -16,7 +16,7 @@ fi
 
 echo "Installing Homebrew packages"
 # Install from Brewfile
-brew bundle -v --file=Brewfile
+#brew bundle -v --file=Brewfile
 
 #sudo rm -rf /Applications/Utilities/Java\ Preferences.app
 #sudo rm -rf /Applications/Utilities/Feedback\ Assistant.app
@@ -147,7 +147,7 @@ defaults write com.apple.dock expose-group-by-app -bool false
 defaults write com.apple.controlstrip '{ MiniCustomized = (
   "com.apple.system.brightness",
   "com.apple.system.media-play-pause",
-  "com.apple.system.screen-lock"
+  "com.apple.system.screen-lock",
   "com.apple.system.volume",
   "com.apple.system.mute"
  ); }'

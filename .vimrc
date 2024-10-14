@@ -68,12 +68,24 @@ Plug 'tpope/vim-markdown'
 " this is shipped with modern version of vim, but use latest version anyway
 Plug 'guns/vim-clojure-static'
 
+let g:clojure_align_multiline_string = 1
+let g:clojure_align_multiline_strings = 1
+
+
+let g:clojure_syntax_keywords  = {
+  \ 'clojureFunc': ['deftest']}
+
+let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^mf?n?/providing', '^mf?n?/verifying']
+
 " om/next lispwords (defui is already matched by the default '^def' entry in clojure_fuzzy_indent_patterns)
 setl lispwords+=query
 setl lispwords+=render
 setl lispwords+=initLocalState,componentDidMount,componentWillMount,componentWillUnmount,componentWillUpdate,componentWillReceiveProps
 
 setl lispwords+=authorized-action
+
+setl lispwords+=go-loop
+setl lispwords+=mfn/verifying,mfn/providing
 " TODO: manifold stuff? let-flow, any other with-thing from other libs? or is that included in default fuzzy stuff
 
 Plug 'tpope/vim-fireplace' " Note: stay on {'branch': 'v1.1'} sez Kevin
@@ -380,6 +392,9 @@ Plug 'fanchangyong/a.vim' " Switch between source and header files easily (e.g. 
 let g:InsertModeAlternateHeader = 0
 
 Plug 'vimwiki/vimwiki'
+let g:vimwiki_url_maxsave=0 " Disable link shortening
+let g:vimwiki_conceallevel=0
+
 let project_wiki = {}
 let project_wiki.path = '~/vimwiki/main/'
 let project_wiki.nested_syntaxes = {'python': 'python', "c++": 'cpp'}
@@ -447,10 +462,16 @@ Plug 'takac/vim-commandcaps'
 
 " Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
+
+let g:gruvbox_contrast_dark='hard'
 set background=dark
 
 " Plugins become visible to Vim after this call
 call plug#end()
+
+" ":silent! colorscheme solarized
+:silent! colorscheme gruvbox
 
 " map chords of simultaneously pressed keys
 call arpeggio#load()
@@ -467,8 +488,6 @@ Arpeggio nnoremap WJ <C-w>J
 Arpeggio nnoremap WK <C-w>K
 Arpeggio nnoremap WL <C-w>L
 Arpeggio nnoremap WH <C-w>H
-
-:silent! colorscheme solarized
 
 " Underline the matching parenthesis (default vim behavior is highlight)
 "highlight MatchParen cterm=NONE,underline,bold ctermbg=NONE ctermfg=NONE gui=NONE,underline,bold guibg=NONE guifg=NONE
@@ -504,7 +523,7 @@ set shiftround         " Round indent to nearest multiple of shiftwidth
 set smarttab
 set expandtab
 set autoindent
-set smartindent
+"set smartindent
 
 " Default new splits to bottom and right
 set splitbelow

@@ -9,6 +9,7 @@ brew 'git'
 brew 'git-lfs'
 brew 'gh' # official github cli
 brew 'git-delta' # diff alternative, used in my git config
+brew 'diff-pdf'
 brew 'fd'
 brew 'ag'
 brew 'fzf'
