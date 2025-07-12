@@ -37,6 +37,8 @@ vim -c "CocInstall coc-git"
 #ln -sf `pwd`/mercurial/.hgrc ~
 #ln -sf `pwd`/mercurial/hgignore.ini ~/.hgignore
 
+ln -sf `pwd`/atuin_config.toml ~/.config/atuin/config.toml
+
 # If cygwin, configure mintty
 if [[ `uname` == *"CYGWIN"* ]]; then
    echo "Installing cygwin specific files"
