@@ -26,3 +26,7 @@ Thumbs.db
 
 # Misc
 *~
+
+# Aider files
+/.aider*
+/aider/
