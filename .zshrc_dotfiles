@@ -84,3 +84,30 @@ alias setJdk17='export JAVA_HOME=$(/usr/libexec/java_home -v17)'
 export HISTSIZE=100000         # big big history
 export HISTFILESIZE=1000000
 setopt HIST_FIND_NO_DUPS
+
+# alias basic CLI commands to modern fancy equivalents
+# cat -> bat
+# du -> duf
+# 
+# They all mirror the original when piping, but keep the original as `old<cmd>` just in case
+if command -v bat &>/dev/null; then
+    alias cat='bat'
+    alias oldcat='command cat'  # Access original cat if needed
+    btail() {
+        tail -f "$1" | bat --paging=never -l log
+    }
+fi
+if command -v duf &>/dev/null; then
+    alias du='duf'
+    alias olddu='command du'
+fi
+# duf isn't quite the same as df.. I'm confused by how it's advertised
+#if command -v duf &>/dev/null; then
+#    alias du='duf'
+#    alias olddu='command du'
+#fi
+if command -v viddy &>/dev/null; then
+    alias watch='viddy'
+    alias oldwatch='command watch'
+fi
+# TODO: try dog instead of dig, but unmaintained https://github.com/ogham/dog

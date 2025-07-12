@@ -34,7 +34,15 @@ brew 'sloccount'
 brew 'mtr'
 brew 'exa' # ls replacement
 brew 'bat' # cat replacement
+brew 'duf' # df but only for file system level info
+brew 'dust' # du replacement
+brew 'viddy' # watch replacment
+brew 'btop' # top replacement
+#brew 'dog' # dig replacement (unmaintained)
+brew 'gum' # CLI tools (e.g. `gum choose` makes selection screen)
 
+
+brew 'atuin' # ctrl-r history in sqlite db!
 brew 'bash' # the bash shipped with OS X is horribly out of date
 brew 'bash-completion'
 
