@@ -2,7 +2,7 @@
 # used by every PC I have. It is sourced by .zshrc so
 # the original zshrc for each system stays in place.
 
-export EDITOR=vim
+export EDITOR=nvim
 
 # --no-ignore-vcs makes it ignore .gitignore
 export FZF_DEFAULT_COMMAND='fd --type f'
