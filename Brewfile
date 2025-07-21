@@ -3,7 +3,7 @@
 # Essential command line tools
 brew 'vim'
 brew 'neovim'
-cask 'macvim'
+cask 'neovide'
 brew 'tmux'
 brew 'git'
 brew 'git-lfs'
@@ -12,6 +12,7 @@ brew 'git-delta' # diff alternative, used in my git config
 brew 'diff-pdf'
 brew 'fd'
 brew 'ag'
+brew 'rg'
 brew 'fzf'
 brew 'jq'
 brew 'yq' # jq for yaml
@@ -32,7 +33,7 @@ brew 'mobile-shell' # mosh
 brew 'rlwrap'
 brew 'sloccount'
 brew 'mtr'
-brew 'exa' # ls replacement
+brew 'eza' # ls replacement
 brew 'bat' # cat replacement
 brew 'duf' # df but only for file system level info
 brew 'dust' # du replacement
@@ -43,14 +44,16 @@ brew 'gum' # CLI tools (e.g. `gum choose` makes selection screen)
 
 
 brew 'atuin' # ctrl-r history in sqlite db!
+brew 'zsh'
 brew 'bash' # the bash shipped with OS X is horribly out of date
 brew 'bash-completion'
 
-cask 'iterm2'
+# Terminals
+cask 'ghostty'
+cask 'kitty'
 
 # Docker/VMs
 brew 'docker'
-brew 'docker-compose'
 
 # JVM languages
 
@@ -58,7 +61,6 @@ brew 'docker-compose'
 brew 'gradle'
 brew 'maven'
 brew 'leiningen'
-brew 'candid82/brew/joker'
 
 #cask 'intellij-idea'
 #cask 'yourkit-java-profiler'
@@ -68,9 +70,15 @@ brew 'nvm'
 brew 'node'
 #brew 'phantomjs'
 
+# Python
+brew 'uv'
+brew 'python'
+brew 'pipx'
+
 # Databases
-brew 'datomic'
+#brew 'datomic'
 brew 'postgresql'
+brew 'pgadmin4'
 #brew 'mysql'
 #cask 'sequel-pro'
 
@@ -84,7 +92,7 @@ cask 'rectangle'
 cask 'sourcetree'
 cask 'p4v' # I just want p4merge super occasionally
 #cask 'wireshark'
-cask 'postman'
+cask 'hoppscotch' # open source version of postman
 
 # Browsers
 cask 'firefox'
@@ -94,4 +102,3 @@ cask 'google-chrome'
 cask 'vlc'
 #cask 'omnigraffle'
 #cask 'flycut'
-cask 'homebrew/cask-drivers/zsa-wally' # Keyboard flashing for my ergodox
