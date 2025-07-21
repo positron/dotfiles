@@ -83,6 +83,8 @@ setopt HIST_FIND_NO_DUPS
 # cat -> bat
 # du -> duf
 # watch -> viddy
+# ls -> eza
+# top -> btop
 # 
 # They all mirror the original when piping, but keep the original as `old<cmd>` just in case
 if command -v bat &>/dev/null; then
@@ -104,6 +106,14 @@ fi
 if command -v viddy &>/dev/null; then
     alias watch='viddy'
     alias oldwatch='command watch'
+fi
+if command -v eza &>/dev/null; then
+    alias ls='eza'
+    alias oldls='command ls'
+fi
+if command -v btop &>/dev/null; then
+    alias top='btop'
+    alias oldtop='command top'
 fi
 # TODO: try dog instead of dig, but unmaintained https://github.com/ogham/dog
 #
