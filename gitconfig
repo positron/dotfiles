@@ -1,5 +1,5 @@
 [core]
-	editor = vim
+	editor = nvim
 	precomposeunicode = true
 	pager = delta
 [alias]
@@ -33,7 +33,7 @@
 [color]
 	ui = true
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
 	stat = true               # show diffstat at end of merge
 [interactive]
 	diffFilter = delta --color-only

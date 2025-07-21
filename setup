@@ -29,9 +29,13 @@ ln -sf `pwd`/.ideavimrc ~
 mkdir -p ~/.vim/backupdir
 mkdir -p ~/.vim/undodir
 mkdir -p ~/.vim/swpdir
-vim +PlugInstall! +qall
-vim -c "CocInstall coc-git"
-# for the CocInstall... for some reason -c "qa" seems to execute first no matter if it's first or last??
+# vim +PlugInstall! +qall
+# vim -c "CocInstall coc-git"
+
+if [ ! -d ~/.config/nvim/.git ]; then
+   mkdir -p ~/.config && cd ~/.config
+   git clone git@github.com:positron/nvim-config.git nvim
+fi
 
 # Configure mercurial
 #ln -sf `pwd`/mercurial/.hgrc ~
@@ -72,6 +76,7 @@ if [ ! -a ~/.zshrc ]; then
 fi
 if ! grep -q zshrc_dotfiles ~/.zshrc; then
    echo "Sourcing zshrc_dotfiles in .zshrc"
-   echo "\nsource `pwd`/.zshrc_dotfiles" >> ~/.zshrc
+   echo "" >> ~/.zshrc
+   echo "source `pwd`/.zshrc_dotfiles" >> ~/.zshrc
    . ~/.zshrc
 fi
