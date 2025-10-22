@@ -81,7 +81,7 @@ setopt HIST_FIND_NO_DUPS
 
 # alias basic CLI commands to modern fancy equivalents
 # cat -> bat
-# du -> duf
+# df -> duf
 # watch -> viddy
 # ls -> eza
 # top -> btop
@@ -95,14 +95,9 @@ if command -v bat &>/dev/null; then
     }
 fi
 if command -v duf &>/dev/null; then
-    alias du='duf'
-    alias olddu='command du'
+    alias df='duf'
+    alias olddf='command du'
 fi
-# duf isn't quite the same as df.. I'm confused by how it's advertised
-#if command -v duf &>/dev/null; then
-#    alias du='duf'
-#    alias olddu='command du'
-#fi
 if command -v viddy &>/dev/null; then
     alias watch='viddy'
     alias oldwatch='command watch'
@@ -116,5 +111,8 @@ if command -v btop &>/dev/null; then
     alias oldtop='command top'
 fi
 # TODO: try dog instead of dig, but unmaintained https://github.com/ogham/dog
-#
-eval "$(atuin init zsh --disable-up-arrow)"
+
+
+if command -v atuin &>/dev/null; then
+    eval "$(atuin init zsh --disable-up-arrow)"
+fi
