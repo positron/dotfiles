@@ -14,12 +14,14 @@ if [[ $(uname -a) == *Darwin*  ]] && [[ ! $(command -v brew)  ]]; then
   exit 0
 fi
 
-echo "Installing Homebrew packages"
+echo 'Run `brew bundle` to install brew packages from the Brewfile'
 # Install from Brewfile
 #brew bundle -v --file=Brewfile
 
 #sudo rm -rf /Applications/Utilities/Java\ Preferences.app
 #sudo rm -rf /Applications/Utilities/Feedback\ Assistant.app
+
+echo "Setting defaults. If you get failures, allow the terminal app 'Full Disk Access' in System Settings"
 
 osascript -e 'tell application "System Preferences" to quit'
 
@@ -68,7 +70,7 @@ defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool false
 defaults write -g NSAutomaticQuoteSubstitutionEnabled -bool false
 
 # Disable auto-correct
-#defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Enable tap to click. (Don't have to press down on the trackpad -- just tap it.)
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
