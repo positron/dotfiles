@@ -55,6 +55,13 @@ cask 'kitty'
 # Docker/VMs
 brew 'docker'
 
+# Kubernetes stuff
+brew 'kubectl'
+brew 'kustomize'
+brew 'k9s'
+brew 'stern'
+brew 'fluxcd/tap/flux'
+
 # JVM languages
 
 # brew 'jabba' # this is totally broken in brew and has been for a year.. :/
