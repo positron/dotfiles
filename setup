@@ -41,6 +41,7 @@ fi
 #ln -sf `pwd`/mercurial/.hgrc ~
 #ln -sf `pwd`/mercurial/hgignore.ini ~/.hgignore
 
+mkdir -p ~/.config/atuin
 ln -sf `pwd`/atuin_config.toml ~/.config/atuin/config.toml
 
 # If cygwin, configure mintty
