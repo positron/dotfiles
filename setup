@@ -67,8 +67,8 @@ if [ ! -a ~/.bashrc ]; then
 fi
 if ! grep -q bashrc_dotfiles ~/.bashrc; then
    echo "Sourcing bashrc_dotfiles in .bashrc"
-   echo "\nsource `pwd`/.bashrc_dotfiles" >> ~/.bashrc
-   . ~/.bashrc
+   echo "" >> ~/.bashrc
+   echo "source `pwd`/.bashrc_dotfiles" >> ~/.bashrc
 fi
 
 # source .zshrc_dotfiles if .zshrc doesn't already
@@ -79,5 +79,11 @@ if ! grep -q zshrc_dotfiles ~/.zshrc; then
    echo "Sourcing zshrc_dotfiles in .zshrc"
    echo "" >> ~/.zshrc
    echo "source `pwd`/.zshrc_dotfiles" >> ~/.zshrc
-   . ~/.zshrc
+fi
+
+# source the shell config file we just installed above depending on what shell we're in now
+if [ -n "$BASH_VERSION" ]; then
+    source ~/.bashrc
+elif [ -n "$ZSH_VERSION" ]; then
+    source ~/.zshrc
 fi
