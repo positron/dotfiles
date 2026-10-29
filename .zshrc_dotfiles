@@ -14,9 +14,12 @@ FZF_CTRL_R_OPTS+=(--height 20%)
 set -o vi
 
 # vim: automatically open multiple files in tabs
-alias vim="vim -p"
-alias nvim="nvim -p"
 alias v="nvim -p"
+alias vim="nvim -p"
+alias nvim="nvim -p"
+# bypass -p alias that conflicts with -d
+alias vimdiff="command nvim -d"
+alias nvimdiff="command nvim -d"
 
 # ls aliases
 export CLICOLOR=1
