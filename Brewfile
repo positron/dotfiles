@@ -5,6 +5,7 @@ brew 'vim'
 brew 'neovim'
 cask 'neovide'
 brew 'tmux'
+brew 'tmux-fingers' # binary for the tmux-fingers plugin
 brew 'git'
 brew 'git-lfs'
 brew 'gh' # official github cli
@@ -21,12 +22,13 @@ brew 'telnet'
 brew 'wget'
 brew 'curl'
 brew 'watch'
-brew 'curl'
+brew 'grpcurl'
 brew 'grep'
 brew 'openssl'
 brew 'tree'
 brew 'nmap'
 brew 'htop'
+brew 'difftastic'
 brew 'ssh-copy-id'
 brew 'trash'
 brew 'mobile-shell' # mosh
@@ -41,6 +43,8 @@ brew 'viddy' # watch replacment
 brew 'btop' # top replacement
 #brew 'dog' # dig replacement (unmaintained)
 brew 'gum' # CLI tools (e.g. `gum choose` makes selection screen)
+brew 'tree-sitter'
+brew 'tree-sitter-cli'
 
 
 brew 'atuin' # ctrl-r history in sqlite db!
