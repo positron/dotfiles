@@ -24,10 +24,21 @@
 	logme = !sh -c \"git log --no-merges `git oldest-ancestor`..\"
 	oldest-ancestor = !bash -c 'diff -u <(git rev-list --first-parent \"${1:-origin/master}\") <(git rev-list --first-parent \"${2:-HEAD}\") | sed -ne \"s/^ //p\" | head -1' -
 
+	# Difftastic aliases, so `git dlog -p` is `git log -p`
+	# with difftastic and likewise for the other subcommands.
+	dlog = -c diff.external=difft log --ext-diff
+	dshow = -c diff.external=difft show --ext-diff
+	ddiff = -c diff.external=difft diff
+	# overwrite default show and log to use difftastic
+	#show = show --ext-diff
+	#log = log --ext-diff
+
 	# `git wa` to check out `main` to `~/tmp/worktrees/<repo name>`, `git wa dev` to check out the `dev` branch instead.
 	wa = "! dir=${2:-~/tmp/worktrees/\"$(basename \"$(git rev-parse --show-toplevel)\")\"}; git worktree add \"$dir\" \"${1:-main}\" && cd \"$dir\" #"
 	# `git wr` to clean up a worktree created with `git wa`.
 	wr = "! git worktree remove ${1:-~/tmp/worktrees/\"$(basename \"$(git rev-parse --show-toplevel)\")\"} #"
+	# copy to clipboard markdown formatted list of commits on this branch
+	# log-md = TODO get this to work
 [user]
 	name = Philip Jagielski
 [color]
@@ -37,6 +48,7 @@
 	stat = true               # show diffstat at end of merge
 [interactive]
 	diffFilter = delta --color-only
+# delta is the old diff / pager I used
 [delta]
 	features = side-by-side line-numbers decorations
 	navigate = true
@@ -48,10 +60,13 @@
 [advice]
 	statusHints = false       # disable "how to stage/unstage/add" hints
 [diff]
+	# external means `git diff` will use difftastic by default
+	external = difft
+	tool = difftastic
 	wsErrorHighlight = all    # diff and show show whitespace errors.
 	renames = copies          # `git diff` will do basic rename and copy detection
 	algorithm = histogram
-  colorMoved = default
+	colorMoved = default
 [branch]
 	autosetupmerge = true     # automatically let the the local branch track the remote branch
 [pull]
@@ -64,3 +79,6 @@
 	enabled = true            # Remember how I resolved the same merge conflict last time.
 [difftool "diffpdf"]
 	cmd = diff-pdf --view \"$LOCAL\" \"$REMOTE\"
+[difftool "difftastic"]
+	# See `man git-difftool` for a description of MERGED, LOCAL and REMOTE.
+	cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
