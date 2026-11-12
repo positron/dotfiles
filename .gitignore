@@ -30,3 +30,7 @@ Thumbs.db
 # Aider files
 /.aider*
 /aider/
+
+**/.claude/settings.local.json
+
+CLAUDE.md
